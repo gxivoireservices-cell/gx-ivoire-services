@@ -5,357 +5,166 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GX-IVOIRE SERVICES</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f7f5f0;color:#252525}
-header{background:#b89b53;color:white;text-align:center;padding:25px 15px}
-header h1{margin:0;font-size:28px}
-header p{margin:10px 0 0}
-nav{background:#252525;text-align:center;padding:13px}
-nav a{color:white;text-decoration:none;margin:10px;font-weight:bold}
-.hero{text-align:center;padding:45px 20px;background:#e9dfc7}
-.hero h2{font-size:28px;color:#70551d}
-.hero p{line-height:1.7}
-.container{padding:25px 15px;max-width:1000px;margin:auto}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{background:white;border-radius:12px;padding:22px;text-align:center;box-shadow:0 2px 8px #ddd}
-.card h3{color:#9a792f}
-.card p{line-height:1.6}
-.btn{display:inline-block;background:#b89b53;color:white;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:bold}
-.contact{text-align:center;background:#252525;color:white;padding:30px 20px}
-.contact a{color:#fff}
-footer{text-align:center;padding:15px;background:#b89b53;color:white}
+body{
+margin:0;font-family:Arial,sans-serif;
+background:#f4f6fa;color:#222;
+}
+header{
+background:#102e63;color:white;
+padding:25px 15px;text-align:center;
+}
+header h1{margin:0;color:#f4b400}
+header p{margin:8px 0}
+nav{
+background:#f4b400;padding:12px;
+text-align:center;
+}
+nav a{
+color:#102e63;text-decoration:none;
+font-weight:bold;margin:8px;
+}
+.hero{
+padding:35px 20px;text-align:center;
+background:#fff;
+}
+.hero h2{color:#102e63}
+.btn{
+display:inline-block;background:#128c49;
+color:white;padding:12px 18px;
+border-radius:6px;text-decoration:none;
+font-weight:bold;margin-top:10px;
+}
+h2.section{
+text-align:center;color:#102e63;
+margin-top:35px;
+}
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:15px;padding:15px;
+}
+.product{
+background:white;border-radius:10px;
+padding:15px;text-align:center;
+box-shadow:0 2px 8px #ddd;
+}
+.product .emoji{font-size:55px}
+.product h3{color:#102e63}
+.price{font-weight:bold;color:#128c49}
+.services{
+padding:20px;background:white;margin:15px;
+border-radius:10px;
+}
+footer{
+background:#102e63;color:white;
+text-align:center;padding:25px;margin-top:30px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
 <h1>GX-IVOIRE SERVICES</h1>
-<p>Votre partenaire en librairie, papeterie, bureautique et divers</p>
+<p>Librairie • Papeterie • Bureautique • Immobilier</p>
+<p>Votre partenaire au quotidien</p>
 </header>
 
 <nav>
 <a href="#accueil">Accueil</a>
-<a href="#services">Nos services</a>
+<a href="#boutique">Boutique</a>
+<a href="#services">Services</a>
 <a href="#contact">Contact</a>
 </nav>
 
 <section class="hero" id="accueil">
 <h2>Bienvenue chez GX-IVOIRE SERVICES</h2>
-<p>Vos fournitures scolaires, bureautiques et vos services<br>
-à portée de main !</p>
-<a class="btn" href="#services">Découvrir nos services</a>
+<p>Retrouvez vos fournitures scolaires, articles de bureau et divers services en un seul endroit.</p>
+<p>Commandez facilement directement sur WhatsApp.</p>
+<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%20GX-IVOIRE%20SERVICES%2C%20je%20souhaite%20passer%20une%20commande" target="_blank">Commander sur WhatsApp</a>
 </section>
 
-<section class="container" id="services">
-<h2 style="text-align:center">Nos activités</h2>
+<h2 class="section" id="boutique">Notre boutique</h2>
+
 <div class="products">
 
-<div class="card">
-<h3>📚 Librairie</h3>
-<p>Livres, cahiers, manuels scolaires et fournitures pour élèves et étudiants.</p>
+<div class="product">
+<div class="emoji">📚</div>
+<h3>Cahiers</h3>
+<p>Cahiers scolaires et universitaires.</p>
+<p class="price">Prix sur demande</p>
+<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20commander%20des%20cahiers" target="_blank">Commander</a>
 </div>
 
-<div class="card">
-<h3>✏️ Papeterie</h3>
-<p>Stylos, crayons, feuilles, classeurs et accessoires de bureau.</p>
+<div class="product">
+<div class="emoji">🖊️</div>
+<h3>Stylos</h3>
+<p>Stylos à bille, couleurs et divers.</p>
+<p class="price">Prix sur demande</p>
+<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20commander%20des%20stylos" target="_blank">Commander</a>
 </div>
 
-<div class="card">
-<h3>🖨️ Services bureautiques</h3>
-<p>Impression, photocopie, saisie, scan et autres prestations.</p>
+<div class="product">
+<div class="emoji">📏</div>
+<h3>Matériel scolaire</h3>
+<p>Règles, crayons, gommes et accessoires.</p>
+<p class="price">Prix sur demande</p>
+<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20commander%20du%20mat%C3%A9riel%20scolaire" target="_blank">Commander</a>
 </div>
 
-<div class="card">
-<h3>🏠 Immobilier</h3>
-<p>Services et opportunités dans le secteur immobilier.</p>
+<div class="product">
+<div class="emoji">📁</div>
+<h3>Articles de bureau</h3>
+<p>Classeurs, chemises et rangement.</p>
+<p class="price">Prix sur demande</p>
+<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20commander%20des%20articles%20de%20bureau" target="_blank">Commander</a>
 </div>
 
-<div class="card">
-<h3>🛍️ Divers</h3>
-<p>Découvrez également nos autres articles et services.</p>
+<div class="product">
+<div class="emoji">🖨️</div>
+<h3>Impression</h3>
+<p>Impression, photocopie et documents.</p>
+<p class="price">Tarif sur demande</p>
+<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20un%20service%20d'impression" target="_blank">Commander</a>
+</div>
+
+<div class="product">
+<div class="emoji">🏠</div>
+<h3>Immobilier</h3>
+<p>Services et opportunités immobilières.</p>
+<p class="price">Nous contacter</p>
+<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20vos%20services%20immobiliers" target="_blank">Contacter</a>
 </div>
 
 </div>
+
+<section class="services" id="services">
+<h2>Nos services</h2>
+<ul>
+<li>Vente de fournitures scolaires</li>
+<li>Vente de fournitures de bureau</li>
+<li>Impression et photocopie</li>
+<li>Services bureautiques divers</li>
+<li>Services immobiliers</li>
+<li>Autres prestations sur demande</li>
+</ul>
 </section>
 
-<section class="contact" id="contact">
+<section class="hero" id="contact">
 <h2>Contactez-nous</h2>
 <p>GX-IVOIRE SERVICES</p>
-<p>Commandes et renseignements sur WhatsApp</p>
-<a class="btn" href="https://wa.me/2250768693537">Commander sur WhatsApp</a>
+<p>WhatsApp et téléphone : 07 68 69 35 37</p>
+<a class="btn" href="https://wa.me/2250768693537" target="_blank">Nous contacter sur WhatsApp</a>
 </section>
 
 <footer>
-<p>© 2026 GX-IVOIRE SERVICES - Tous droits réservés</p>
+<p>GX-IVOIRE SERVICES</p>
+<p>Librairie • Papeterie • Bureautique • Immobilier</p>
+<p>© 2026 - Tous droits réservés</p>
 </footer>
 
 </body>
-
-<style>
-#gxi-boutique {
-  padding: 30px 15px;
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
-  color: #222;
-}
-#gxi-boutique h2 {
-  text-align: center;
-  color: #123c70;
-}
-.gxi-produits {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
-  gap: 15px;
-}
-.gxi-carte {
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 2px 8px #0001;
-}
-.gxi-carte .emoji {
-  font-size: 45px;
-}
-.gxi-carte h3 {
-  font-size: 17px;
-}
-.gxi-prix {
-  color: #13753c;
-  font-weight: bold;
-}
-.gxi-carte a {
-  display: block;
-  background: #128c53;
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 8px;
-  margin-top: 10px;
-}
-</style>
-
-<section id="gxi-boutique">
-  <h2>🛍️ Notre Boutique</h2>
-  <p style="text-align:center">
-    Découvrez nos articles de librairie, papeterie et bureautique.
-  </p>
-
-
-<div class="gxi-produits">
-
-  <div class="gxi-carte">
-    <div class="emoji">📁</div>
-    <h3>Chemise cartonnée</h3>
-    <p class="gxi-prix">100 F / unité - 6 500 F / paquet</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20des%20chemises%20cartonnees" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📒</div>
-    <h3>Cahier 100 pages 17×22 Classinn</h3>
-    <p class="gxi-prix">250 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20cahier%20Classinn%20100%20pages" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📂</div>
-    <h3>Chemise à rabat cartonnée</h3>
-    <p class="gxi-prix">500 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20une%20chemise%20a%20rabat" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📄</div>
-    <h3>Sous-chemise</h3>
-    <p class="gxi-prix">25 F / unité - 5 500 F / paquet</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20des%20sous%20chemises" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">🗃️</div>
-    <h3>Boîte archives</h3>
-    <p class="gxi-prix">500 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20une%20boite%20archives" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📄</div>
-    <h3>Photocopie</h3>
-    <p class="gxi-prix">25 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20faire%20des%20photocopies" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">🖨️</div>
-    <h3>Impression</h3>
-    <p class="gxi-prix">75 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20faire%20une%20impression" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📦</div>
-    <h3>Rame de papier</h3>
-    <p class="gxi-prix">3 000 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20une%20rame%20de%20papier" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📝</div>
-    <h3>Bloc-notes A5</h3>
-    <p class="gxi-prix">500 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20bloc%20notes%20A5" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">✂️</div>
-    <h3>Ciseaux 17 cm</h3>
-    <p class="gxi-prix">1 000 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20des%20ciseaux%2017cm" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📎</div>
-    <h3>Scotch grand format</h3>
-    <p class="gxi-prix">1 000 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20du%20scotch%20grand%20format" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">🖊️</div>
-    <h3>Stylos</h3>
-    <p class="gxi-prix">100 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20des%20stylos" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">🧽</div>
-    <h3>Gomme</h3>
-    <p class="gxi-prix">100 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20une%20gomme" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">✏️</div>
-    <h3>Crayon</h3>
-    <p class="gxi-prix">100 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20crayon" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📒</div>
-    <h3>Cahier 200 pages 17×22 Prestige</h3>
-    <p class="gxi-prix">500 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20cahier%20Prestige%20200%20pages" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📒</div>
-    <h3>Cahier 300 pages 17×22 Prestige</h3>
-    <p class="gxi-prix">950 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20cahier%20Prestige%20300%20pages" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">🧴</div>
-    <h3>Colle transparente 70 ml</h3>
-    <p class="gxi-prix">450 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20une%20colle%20transparente%2070ml" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">🖊️</div>
-    <h3>Blanco stylo correcteur</h3>
-    <p class="gxi-prix">500 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20blanco" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📋</div>
-    <h3>Ardoise noire petit format</h3>
-    <p class="gxi-prix">225 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20une%20ardoise%20noire" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">🎒</div>
-    <h3>Trousse M&G</h3>
-    <p class="gxi-prix">2 500 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20une%20trousse%20MG" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">✏️</div>
-    <h3>Taille-crayon à réservoir</h3>
-    <p class="gxi-prix">225 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20taille%20crayon%20a%20reservoir" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">✏️</div>
-    <h3>Petit taille-crayon</h3>
-    <p class="gxi-prix">100 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20petit%20taille%20crayon" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📓</div>
-    <h3>Notebook Meebook</h3>
-    <p class="gxi-prix">1 000 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20Notebook%20Meebook" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">🖊️</div>
-    <h3>Stylo Bic bleu</h3>
-    <p class="gxi-prix">100 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20stylo%20Bic%20bleu" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">🖊️</div>
-    <h3>Stylo Bic rouge</h3>
-    <p class="gxi-prix">100 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20stylo%20Bic%20rouge" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">🖊️</div>
-    <h3>Stylo Bic vert</h3>
-    <p class="gxi-prix">100 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20stylo%20Bic%20vert" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">🖊️</div>
-    <h3>Stylo Bic noir</h3>
-    <p class="gxi-prix">100 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20stylo%20Bic%20noir" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📒</div>
-    <h3>Cahier Polypro original 200 pages 17×22</h3>
-    <p class="gxi-prix">900 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20cahier%20Polypro%20200%20pages" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📒</div>
-    <h3>Cahier Polypro original 300 pages 17×22</h3>
-    <p class="gxi-prix">1 500 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20un%20cahier%20Polypro%20300%20pages" target="_blank">Commander</a>
-  </div>
-
-  <div class="gxi-carte">
-    <div class="emoji">📑</div>
-    <h3>Copie double 200 pages petit format Authentik</h3>
-    <p class="gxi-prix">550 F</p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20commande%20une%20copie%20double%20Authentik" target="_blank">Commander</a>
-  </div>
-
-</div>
-  
-</section>
 </html>
