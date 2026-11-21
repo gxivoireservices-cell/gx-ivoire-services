@@ -4,63 +4,350 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GX-IVOIRE SERVICES</title>
+<title>GX-IVOIRE SERVICES | Boutique</title>
 
 <style>
-*{box-sizing:border-box}
-body{
-margin:0;font-family:Arial,sans-serif;
-background:#f4f6fa;color:#222;
+:root {
+  --vert: #128c49;
+  --vert-fonce: #07552e;
+  --orange: #f7941d;
+  --bleu: #102e63;
+  --blanc: #ffffff;
+  --fond: #f5f7f5;
 }
-header{
-background:#102e63;color:white;
-padding:25px 15px;text-align:center;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-header h1{margin:0;color:#f4b400}
-header p{margin:8px 0}
-nav{
-background:#f4b400;padding:12px;
-text-align:center;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fond);
+  color: #222;
+  line-height: 1.6;
 }
-nav a{
-color:#102e63;text-decoration:none;
-font-weight:bold;margin:8px;
+
+header {
+  background: var(--vert-fonce);
+  color: white;
+  padding: 15px;
+  text-align: center;
 }
-.hero{
-padding:35px 20px;text-align:center;
-background:#fff;
+
+.logo {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
-.hero h2{color:#102e63}
-.btn{
-display:inline-block;background:#128c49;
-color:white;padding:12px 18px;
-border-radius:6px;text-decoration:none;
-font-weight:bold;margin-top:10px;
+
+header h1 {
+  font-size: 26px;
+  color: white;
 }
-h2.section{
-text-align:center;color:#102e63;
-margin-top:35px;
+
+header p {
+  color: #f5f5f5;
 }
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:15px;padding:15px;
+
+nav {
+  background: var(--vert);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
 }
-.product{
-background:white;border-radius:10px;
-padding:15px;text-align:center;
-box-shadow:0 2px 8px #ddd;
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-weight: bold;
 }
-.product .emoji{font-size:55px}
-.product h3{color:#102e63}
-.price{font-weight:bold;color:#128c49}
-.services{
-padding:20px;background:white;margin:15px;
-border-radius:10px;
+
+nav a:hover {
+  background: var(--orange);
+  border-radius: 5px;
 }
-footer{
-background:#102e63;color:white;
-text-align:center;padding:25px;margin-top:30px;
+
+.hero {
+  background: linear-gradient(135deg, #07552e, #128c49);
+  color: white;
+  text-align: center;
+  padding: 45px 20px;
+}
+
+.hero h2 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: auto;
+}
+
+.hero button {
+  margin-top: 20px;
+  background: var(--orange);
+  color: white;
+  border: none;
+  padding: 13px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+section {
+  padding: 35px 15px;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--vert-fonce);
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.categories button {
+  padding: 10px 15px;
+  background: white;
+  color: var(--vert-fonce);
+  border: 1px solid var(--vert);
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.categories button.active,
+.categories button:hover {
+  background: var(--vert);
+  color: white;
+}
+
+.search-box {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 25px;
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.product {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: #eee;
+}
+
+.product-info {
+  padding: 15px;
+}
+
+.product h3 {
+  color: var(--vert-fonce);
+  margin-bottom: 8px;
+}
+
+.product p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: var(--orange);
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.product button {
+  background: var(--vert);
+  color: white;
+  width: 100%;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.product button:hover {
+  background: var(--vert-fonce);
+}
+
+.cart-section {
+  background: white;
+  max-width: 900px;
+  margin: 20px auto;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+
+.cart-section h2 {
+  color: var(--vert-fonce);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.cart-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+  align-items: center;
+}
+
+.cart-item button {
+  padding: 5px 10px;
+  background: #e53935;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-total {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  color: var(--vert-fonce);
+}
+
+.whatsapp-btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.services {
+  background: #eaf5ee;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.service-card {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.service-card h3 {
+  color: var(--vert-fonce);
+  margin-bottom: 10px;
+}
+
+.contact {
+  text-align: center;
+  background: white;
+}
+
+.contact p {
+  margin: 10px;
+}
+
+.contact a {
+  color: var(--vert);
+  font-weight: bold;
+}
+
+footer {
+  background: var(--vert-fonce);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+footer p {
+  margin: 5px;
+}
+
+@media(max-width:600px) {
+  header h1 {
+    font-size: 22px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  nav a {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .product img {
+    height: 145px;
+  }
+
+  .product-info {
+    padding: 10px;
+  }
+
+  .product h3 {
+    font-size: 15px;
+  }
+
+  .product p {
+    font-size: 12px;
+  }
+
+  .product button {
+    padding: 10px 5px;
+    font-size: 13px;
+  }
 }
 </style>
 </head>
@@ -68,104 +355,286 @@ text-align:center;padding:25px;margin-top:30px;
 <body>
 
 <header>
-<img src="logo-gx-ivoire.png" alt="Logo GX-IVOIRE SERVICES" style="width:130px;max-width:100%;height:auto
-<h1>GX-IVOIRE SERVICES</h1>
-<p>Librairie • Papeterie • Bureautique • Immobilier</p>
-<p>Votre partenaire au quotidien</p>
+  <img src="logo-gx-ivoire.png" alt="Logo GX-IVOIRE SERVICES" class="logo">
+  <h1>GX-IVOIRE SERVICES</h1>
+  <p>Librairie • Papeterie • Bureautique • Immobilier</p>
 </header>
 
 <nav>
-<a href="#accueil">Accueil</a>
-<a href="#boutique">Boutique</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
+  <a href="#accueil">Accueil</a>
+  <a href="#boutique">Boutique</a>
+  <a href="#panier">Panier</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <section class="hero" id="accueil">
-<h2>Bienvenue chez GX-IVOIRE SERVICES</h2>
-<p>Retrouvez vos fournitures scolaires, articles de bureau et divers services en un seul endroit.</p>
-<p>Commandez facilement directement sur WhatsApp.</p>
-<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%20GX-IVOIRE%20SERVICES%2C%20je%20souhaite%20passer%20une%20commande" target="_blank">Commander sur WhatsApp</a>
+  <h2>Bienvenue chez GX-IVOIRE SERVICES</h2>
+  <p>
+    Retrouvez vos fournitures scolaires, articles de bureau,
+    matériel de papeterie et bien plus encore.
+    Commandez facilement et directement via WhatsApp.
+  </p>
+  <button onclick="document.getElementById('boutique').scrollIntoView({behavior:'smooth'})">
+    Découvrir la boutique
+  </button>
 </section>
 
-<h2 class="section" id="boutique">Notre boutique</h2>
+<section id="boutique">
+  <h2 class="section-title">Notre Boutique</h2>
 
-<div class="products">
+  <div class="categories">
+    <button class="active" onclick="filterProducts('Tous',this)">Tous</button>
+    <button onclick="filterProducts('Cahiers',this)">Cahiers</button>
+    <button onclick="filterProducts('Stylos',this)">Stylos</button>
+    <button onclick="filterProducts('Scolaire',this)">Scolaire</button>
+    <button onclick="filterProducts('Bureau',this)">Bureau</button>
+  </div>
 
-<div class="product">
-<div class="emoji">📚</div>
-<h3>Cahiers</h3>
-<p>Cahiers scolaires et universitaires.</p>
-<p class="price">Prix sur demande</p>
-<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20commander%20des%20cahiers" target="_blank">Commander</a>
-</div>
+  <input
+    type="search"
+    class="search-box"
+    id="search"
+    placeholder="Rechercher un article..."
+    oninput="searchProducts()">
 
-<div class="product">
-<div class="emoji">🖊️</div>
-<h3>Stylos</h3>
-<p>Stylos à bille, couleurs et divers.</p>
-<p class="price">Prix sur demande</p>
-<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20commander%20des%20stylos" target="_blank">Commander</a>
-</div>
+  <div class="products" id="products"></div>
+</section>
 
-<div class="product">
-<div class="emoji">📏</div>
-<h3>Matériel scolaire</h3>
-<p>Règles, crayons, gommes et accessoires.</p>
-<p class="price">Prix sur demande</p>
-<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20commander%20du%20mat%C3%A9riel%20scolaire" target="_blank">Commander</a>
-</div>
-
-<div class="product">
-<div class="emoji">📁</div>
-<h3>Articles de bureau</h3>
-<p>Classeurs, chemises et rangement.</p>
-<p class="price">Prix sur demande</p>
-<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20commander%20des%20articles%20de%20bureau" target="_blank">Commander</a>
-</div>
-
-<div class="product">
-<div class="emoji">🖨️</div>
-<h3>Impression</h3>
-<p>Impression, photocopie et documents.</p>
-<p class="price">Tarif sur demande</p>
-<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20un%20service%20d'impression" target="_blank">Commander</a>
-</div>
-
-<div class="product">
-<div class="emoji">🏠</div>
-<h3>Immobilier</h3>
-<p>Services et opportunités immobilières.</p>
-<p class="price">Nous contacter</p>
-<a class="btn" href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20vos%20services%20immobiliers" target="_blank">Contacter</a>
-</div>
-
-</div>
+<section id="panier">
+  <div class="cart-section">
+    <h2>🛒 Mon Panier</h2>
+    <div id="cart-items"></div>
+    <div class="cart-total" id="cart-total"></div>
+    <a class="whatsapp-btn" id="order-btn" href="#" onclick="orderWhatsApp(event)">
+      Commander sur WhatsApp
+    </a>
+  </div>
+</section>
 
 <section class="services" id="services">
-<h2>Nos services</h2>
-<ul>
-<li>Vente de fournitures scolaires</li>
-<li>Vente de fournitures de bureau</li>
-<li>Impression et photocopie</li>
-<li>Services bureautiques divers</li>
-<li>Services immobiliers</li>
-<li>Autres prestations sur demande</li>
-</ul>
+  <h2 class="section-title">Nos Services</h2>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <h3>📚 Librairie & Papeterie</h3>
+      <p>Vente de cahiers, stylos, fournitures scolaires et accessoires.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>💻 Services bureautiques</h3>
+      <p>Saisie, traitement de documents, impression et autres prestations bureautiques.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>🏢 Immobilier</h3>
+      <p>Accompagnement dans vos recherches de biens immobiliers et autres services.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>🖨️ Impression & Documents</h3>
+      <p>Services liés à la préparation, la reproduction et la gestion de documents.</p>
+    </div>
+
+  </div>
 </section>
 
-<section class="hero" id="contact">
-<h2>Contactez-nous</h2>
-<p>GX-IVOIRE SERVICES</p>
-<p>WhatsApp et téléphone : 07 68 69 35 37</p>
-<a class="btn" href="https://wa.me/2250768693537" target="_blank">Nous contacter sur WhatsApp</a>
+<section class="contact" id="contact">
+  <h2 class="section-title">Contactez-nous</h2>
+  <p>GX-IVOIRE SERVICES</p>
+  <p>Pour toute commande ou demande d'information :</p>
+  <p>
+    WhatsApp / Téléphone :
+    <a href="https://wa.me/2250768693537" target="_blank">
+      07 68 69 35 37
+    </a>
+  </p>
+  <p>
+    <a href="https://wa.me/2250768693537?text=Bonjour%20GX-IVOIRE%20SERVICES">
+      Nous contacter sur WhatsApp
+    </a>
+  </p>
 </section>
 
 <footer>
-<p>GX-IVOIRE SERVICES</p>
-<p>Librairie • Papeterie • Bureautique • Immobilier</p>
-<p>© 2026 - Tous droits réservés</p>
+  <p><strong>GX-IVOIRE SERVICES</strong></p>
+  <p>Librairie • Papeterie • Bureautique • Immobilier</p>
+  <p>© 2026 GX-IVOIRE SERVICES - Tous droits réservés</p>
 </footer>
 
+<script>
+const productsData = [
+  {
+    name: "Cahiers",
+    category: "Cahiers",
+    description: "Cahiers scolaires et universitaires.",
+    image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    name: "Stylos",
+    category: "Stylos",
+    description: "Stylos à bille, stylos couleurs et autres.",
+    image: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    name: "Fournitures scolaires",
+    category: "Scolaire",
+    description: "Matériel et fournitures pour élèves et étudiants.",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    name: "Sacs scolaires",
+    category: "Scolaire",
+    description: "Sacs et accessoires pour la rentrée scolaire.",
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    name: "Matériel de bureau",
+    category: "Bureau",
+    description: "Accessoires et matériel de bureau.",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    name: "Classeurs et dossiers",
+    category: "Bureau",
+    description: "Classement, archivage et organisation.",
+    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    name: "Crayons et couleurs",
+    category: "Scolaire",
+    description: "Crayons, feutres et matériel de dessin.",
+    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    name: "Accessoires bureautiques",
+    category: "Bureau",
+    description: "Divers accessoires pour vos activités de bureau.",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80"
+  }
+];
+
+let cart = [];
+let currentCategory = "Tous";
+
+function displayProducts(list) {
+  const container = document.getElementById("products");
+
+  if (list.length === 0) {
+    container.innerHTML = "<p>Aucun article trouvé.</p>";
+    return;
+  }
+
+  container.innerHTML = list.map((product, index) => `
+    <div class="product">
+      <img src="${product.image}" alt="${product.name}"
+        loading="lazy"
+        onerror="this.src='https://placehold.co/600x400?text=GX-IVOIRE'">
+      <div class="product-info">
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+        <div class="price">Prix sur demande</div>
+        <button onclick="addToCart('${product.name.replace(/'/g, "\\'")}')">
+          Ajouter au panier
+        </button>
+      </div>
+    </div>
+  `).join("");
+}
+
+function filterProducts(category, button) {
+  currentCategory = category;
+
+  document.querySelectorAll(".categories button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  button.classList.add("active");
+
+  searchProducts();
+}
+
+function searchProducts() {
+  const query = document.getElementById("search").value.toLowerCase();
+
+  const filtered = productsData.filter(product => {
+    const matchesCategory =
+      currentCategory === "Tous" || product.category === currentCategory;
+
+    const matchesSearch =
+      product.name.toLowerCase().includes(query) ||
+      product.description.toLowerCase().includes(query);
+
+    return matchesCategory && matchesSearch;
+  });
+
+  displayProducts(filtered);
+}
+
+function addToCart(name) {
+  const existing = cart.find(item => item.name === name);
+
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push({ name: name, quantity: 1 });
+  }
+
+  displayCart();
+
+  alert(name + " ajouté au panier !");
+}
+
+function removeFromCart(name) {
+  cart = cart.filter(item => item.name !== name);
+  displayCart();
+}
+
+function displayCart() {
+  const container = document.getElementById("cart-items");
+  const total = document.getElementById("cart-total");
+
+  if (cart.length === 0) {
+    container.innerHTML = "<p>Votre panier est vide.</p>";
+    total.innerHTML = "";
+    return;
+  }
+
+  container.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <span>${item.name} × ${item.quantity}</span>
+      <button onclick="removeFromCart('${item.name.replace(/'/g, "\\'")}')">
+        Retirer
+      </button>
+    </div>
+  `).join("");
+
+  total.innerHTML = "Prix total : à confirmer avec le vendeur";
+}
+
+function orderWhatsApp(event) {
+  event.preventDefault();
+
+  if (cart.length === 0) {
+    alert("Votre panier est vide. Ajoutez des articles avant de commander.");
+    return;
+  }
+
+  let message = "Bonjour GX-IVOIRE SERVICES, je souhaite commander :%0A%0A";
+
+  cart.forEach(item => {
+    message += "- " + item.name + " (Quantité : " + item.quantity + ")%0A";
+  });
+
+  message += "%0AMerci de me confirmer les prix et la disponibilité.";
+
+  window.open("https://wa.me/2250768693537?text=" + message, "_blank");
+}
+
+displayProducts(productsData);
+displayCart();
+</script>
+
 </body>
-</html>
+  </html>
