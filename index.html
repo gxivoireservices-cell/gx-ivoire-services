@@ -3,673 +3,267 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GX-IVOIRE SERVICES | Boutique</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GX-IVOIRE SERVICES</title>
 
 <style>
-:root {
-  --vert: #128c49;
-  --vert-fonce: #07552e;
-  --orange: #f7941d;
-  --bleu: #102e63;
-  --blanc: #ffffff;
-  --fond: #f5f7f5;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--fond);
-  color: #222;
-  line-height: 1.6;
-}
-
-header {
-  background: var(--vert-fonce);
-  color: white;
-  padding: 15px;
-  text-align: center;
-}
-
-.logo {
-  width: 110px;
-  height: 110px;
-  object-fit: contain;
-  background: white;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-header h1 {
-  font-size: 26px;
-  color: white;
-}
-
-header p {
-  color: #f5f5f5;
-}
-
-nav {
-  background: var(--vert);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 8px 12px;
-  font-weight: bold;
-}
-
-nav a:hover {
-  background: var(--orange);
-  border-radius: 5px;
-}
-
-.hero {
-  background: linear-gradient(135deg, #07552e, #128c49);
-  color: white;
-  text-align: center;
-  padding: 45px 20px;
-}
-
-.hero h2 {
-  font-size: 30px;
-  margin-bottom: 12px;
-}
-
-.hero p {
-  max-width: 700px;
-  margin: auto;
-}
-
-.hero button {
-  margin-top: 20px;
-  background: var(--orange);
-  color: white;
-  border: none;
-  padding: 13px 25px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-section {
-  padding: 35px 15px;
-}
-
-.section-title {
-  text-align: center;
-  color: var(--vert-fonce);
-  margin-bottom: 25px;
-  font-size: 26px;
-}
-
-.categories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 25px;
-}
-
-.categories button {
-  padding: 10px 15px;
-  background: white;
-  color: var(--vert-fonce);
-  border: 1px solid var(--vert);
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.categories button.active,
-.categories button:hover {
-  background: var(--vert);
-  color: white;
-}
-
-.search-box {
-  display: block;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto 25px;
-  padding: 13px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-}
-
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.product {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-}
-
-.product img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  background: #eee;
-}
-
-.product-info {
-  padding: 15px;
-}
-
-.product h3 {
-  color: var(--vert-fonce);
-  margin-bottom: 8px;
-}
-
-.product p {
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.price {
-  color: var(--orange);
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.product button {
-  background: var(--vert);
-  color: white;
-  width: 100%;
-  border: none;
-  padding: 12px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.product button:hover {
-  background: var(--vert-fonce);
-}
-
-.cart-section {
-  background: white;
-  max-width: 900px;
-  margin: 20px auto;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-}
-
-.cart-section h2 {
-  color: var(--vert-fonce);
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.cart-item {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 10px;
-  border-bottom: 1px solid #eee;
-  padding: 12px 0;
-  align-items: center;
-}
-
-.cart-item button {
-  padding: 5px 10px;
-  background: #e53935;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.cart-total {
-  text-align: center;
-  margin-top: 20px;
-  font-weight: bold;
-  color: var(--vert-fonce);
-}
-
-.whatsapp-btn {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  background: #25D366;
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 20px;
-  font-weight: bold;
-}
-
-.services {
-  background: #eaf5ee;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.service-card {
-  background: white;
-  padding: 22px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.service-card h3 {
-  color: var(--vert-fonce);
-  margin-bottom: 10px;
-}
-
-.contact {
-  text-align: center;
-  background: white;
-}
-
-.contact p {
-  margin: 10px;
-}
-
-.contact a {
-  color: var(--vert);
-  font-weight: bold;
-}
-
-footer {
-  background: var(--vert-fonce);
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
-
-footer p {
-  margin: 5px;
-}
-
-@media(max-width:600px) {
-  header h1 {
-    font-size: 22px;
-  }
-
-  .hero h2 {
-    font-size: 24px;
-  }
-
-  nav a {
-    font-size: 14px;
-    padding: 6px;
-  }
-
-  .products {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .product img {
-    height: 145px;
-  }
-
-  .product-info {
-    padding: 10px;
-  }
-
-  .product h3 {
-    font-size: 15px;
-  }
-
-  .product p {
-    font-size: 12px;
-  }
-
-  .product button {
-    padding: 10px 5px;
-    font-size: 13px;
-  }
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f7f5;color:#222;line-height:1.6}
+header{background:#07552e;color:white;text-align:center;padding:20px}
+.logo{width:110px;height:110px;object-fit:contain;border-radius:50%;background:white}
+header h1{margin-top:10px}
+nav{background:#128c49;display:flex;flex-wrap:wrap;justify-content:center;padding:10px}
+nav a{color:white;text-decoration:none;padding:10px;font-weight:bold}
+nav a:hover{background:#07552e}
+.hero{background:#07552e;color:white;text-align:center;padding:40px 20px}
+.hero h2{font-size:28px;margin-bottom:10px}
+.hero button{background:#f7941d;color:white;border:0;padding:12px 20px;border-radius:8px;margin-top:15px}
+section{padding:30px 15px}
+.section-title{text-align:center;color:#07552e;margin-bottom:25px}
+.categories{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:20px}
+.categories button{padding:10px;border:1px solid #128c49;background:white;color:#07552e;border-radius:20px}
+.categories button.active{background:#128c49;color:white}
+.search-box{display:block;width:100%;max-width:500px;margin:0 auto 25px;padding:12px;border:1px solid #ccc;border-radius:8px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;max-width:1100px;margin:auto}
+.product{background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px #ddd}
+.product img{width:100%;height:180px;object-fit:cover}
+.product-info{padding:12px}
+.product h3{color:#07552e}
+.price{color:#f7941d;font-weight:bold;margin:10px 0}
+.product button{width:100%;padding:12px;background:#128c49;color:white;border:0;border-radius:6px}
+.cart-section{background:white;max-width:900px;margin:auto;padding:20px;border-radius:10px}
+.cart-item{border-bottom:1px solid #ddd;padding:15px 0}
+.cart-controls{display:flex;align-items:center;gap:10px;margin:10px 0}
+.cart-controls button{padding:6px 12px;border:0;border-radius:5px;background:#128c49;color:white}
+.remove{background:#e53935!important}
+.cart-total{text-align:center;font-size:20px;font-weight:bold;color:#07552e;margin:20px}
+.whatsapp-btn{display:block;text-align:center;text-decoration:none;background:#25D366;color:white;padding:15px;border-radius:8px;font-weight:bold}
+.services{background:#eaf5ee}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;max-width:1000px;margin:auto}
+.service-card{background:white;padding:20px;border-radius:10px;text-align:center}
+.service-card h3{color:#07552e}
+.contact{text-align:center;background:white}
+.contact a{color:#128c49;font-weight:bold}
+footer{background:#07552e;color:white;text-align:center;padding:20px}
+@media(max-width:500px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}.product img{height:140px}.product-info{padding:8px}.product h3{font-size:15px}}
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="1793975161703.jpg" alt="Logo GX-IVOIRE SERVICES" class="logo">
-  <h1>GX-IVOIRE SERVICES</h1>
-  <p>Librairie • Papeterie • Bureautique • Immobilier</p>
+<img src="1793975161703.jpg" class="logo" alt="GX-IVOIRE SERVICES">
+<h1>GX-IVOIRE SERVICES</h1>
+<p>Librairie • Papeterie • Bureautique • Immobilier</p>
 </header>
 
 <nav>
-  <a href="#accueil">Accueil</a>
-  <a href="#boutique">Boutique</a>
-  <a href="#panier">Panier</a>
-  <a href="#services">Services</a>
-  <a href="#contact">Contact</a>
+<a href="#accueil">Accueil</a>
+<a href="#boutique">Boutique</a>
+<a href="#panier">Mon panier</a>
+<a href="#services">Nos services</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <section class="hero" id="accueil">
-  <h2>Bienvenue chez GX-IVOIRE SERVICES</h2>
-  <p>
-    Retrouvez vos fournitures scolaires, articles de bureau,
-    matériel de papeterie et bien plus encore.
-    Commandez facilement et directement via WhatsApp.
-  </p>
-  <button onclick="document.getElementById('boutique').scrollIntoView({behavior:'smooth'})">
-    Découvrir la boutique
-  </button>
+<h2>Bienvenue chez GX-IVOIRE SERVICES</h2>
+<p>Vos fournitures scolaires, articles de bureau et divers services à votre portée.</p>
+<button onclick="document.getElementById('boutique').scrollIntoView()">Voir la boutique</button>
 </section>
 
 <section id="boutique">
-  <h2 class="section-title">Notre Boutique</h2>
+<h2 class="section-title">Notre Boutique</h2>
 
-  <div class="categories">
-    <button class="active" onclick="filterProducts('Tous',this)">Tous</button>
-    <button onclick="filterProducts('Cahiers',this)">Cahiers</button>
-    <button onclick="filterProducts('Stylos',this)">Stylos</button>
-    <button onclick="filterProducts('Scolaire',this)">Scolaire</button>
-    <button onclick="filterProducts('Bureau',this)">Bureau</button>
-  </div>
+<div class="categories">
+<button class="active" onclick="filterProducts('Tous',this)">Tous</button>
+<button onclick="filterProducts('Cahiers',this)">Cahiers</button>
+<button onclick="filterProducts('Stylos',this)">Stylos</button>
+<button onclick="filterProducts('Scolaire',this)">Scolaire</button>
+<button onclick="filterProducts('Bureau',this)">Bureau</button>
+</div>
 
-  <input
-    type="search"
-    class="search-box"
-    id="search"
-    placeholder="Rechercher un article..."
-    oninput="searchProducts()">
+<input id="search" class="search-box" placeholder="Rechercher un article..." oninput="searchProducts()">
 
-  <div class="products" id="products"></div>
+<div class="products" id="products"></div>
 </section>
 
 <section id="panier">
-  <div class="cart-section">
-    <h2>🛒 Mon Panier</h2>
-    <div id="cart-items"></div>
-    <div class="cart-total" id="cart-total"></div>
-    <a class="whatsapp-btn" id="order-btn" href="#" onclick="orderWhatsApp(event)">
-      Commander sur WhatsApp
-    </a>
-  </div>
+<div class="cart-section">
+<h2 class="section-title">🛒 Mon panier</h2>
+<div id="cart-items"></div>
+<div id="cart-total" class="cart-total"></div>
+<button class="whatsapp-btn" onclick="orderWhatsApp()">Commander sur WhatsApp</button>
+</div>
 </section>
 
-<section class="services" id="services">
-  <h2 class="section-title">Nos Services</h2>
-
-  <div class="services-grid">
-
-    <div class="service-card">
-      <h3>📚 Librairie & Papeterie</h3>
-      <p>Vente de cahiers, stylos, fournitures scolaires et accessoires.</p>
-    </div>
-
-    <div class="service-card">
-      <h3>💻 Services bureautiques</h3>
-      <p>Saisie, traitement de documents, impression et autres prestations bureautiques.</p>
-    </div>
-
-    <div class="service-card">
-      <h3>🏢 Immobilier</h3>
-      <p>Accompagnement dans vos recherches de biens immobiliers et autres services.</p>
-    </div>
-
-    <div class="service-card">
-      <h3>🖨️ Impression & Documents</h3>
-      <p>Services liés à la préparation, la reproduction et la gestion de documents.</p>
-    </div>
-
-  </div>
+<section id="services" class="services">
+<h2 class="section-title">Nos Services</h2>
+<div class="services-grid">
+<div class="service-card">
+<h3>📚 Librairie & Papeterie</h3>
+<p>Vente de fournitures scolaires, cahiers, stylos et accessoires.</p>
+</div>
+<div class="service-card">
+<h3>💻 Services bureautiques</h3>
+<p>Saisie, traitement, impression et préparation de documents.</p>
+</div>
+<div class="service-card">
+<h3>🏢 Immobilier</h3>
+<p>Accompagnement dans vos recherches immobilières.</p>
+</div>
+<div class="service-card">
+<h3>🖨️ Impression</h3>
+<p>Prestations et services liés à vos documents.</p>
+</div>
+</div>
 </section>
 
-<section class="contact" id="contact">
-  <h2 class="section-title">Contactez-nous</h2>
-  <p>GX-IVOIRE SERVICES</p>
-  <p>Pour toute commande ou demande d'information :</p>
-  <p>
-    WhatsApp / Téléphone :
-    <a href="https://wa.me/2250768693537" target="_blank">
-      07 68 69 35 37
-    </a>
-  </p>
-  <p>
-    <a href="https://wa.me/2250768693537?text=Bonjour%20GX-IVOIRE%20SERVICES">
-      Nous contacter sur WhatsApp
-    </a>
-  </p>
+<section id="contact" class="contact">
+<h2 class="section-title">Contactez-nous</h2>
+<p>GX-IVOIRE SERVICES</p>
+<p>WhatsApp / Téléphone :</p>
+<p><a href="https://wa.me/2250768693537">07 68 69 35 37</a></p>
+<p><a href="https://wa.me/2250768693537?text=Bonjour%20GX-IVOIRE%20SERVICES">Écrire sur WhatsApp</a></p>
 </section>
 
 <footer>
-  <p><strong>GX-IVOIRE SERVICES</strong></p>
-  <p>Librairie • Papeterie • Bureautique • Immobilier</p>
-  <p>© 2026 GX-IVOIRE SERVICES - Tous droits réservés</p>
+<p><strong>GX-IVOIRE SERVICES</strong></p>
+<p>Librairie • Papeterie • Bureautique • Immobilier</p>
+<p>© 2026 GX-IVOIRE SERVICES</p>
 </footer>
 
 <script>
-
 const productsData = [
-  {
-    name: "Cahiers",
-    category: "Cahiers",
-    description: "Cahiers scolaires et universitaires.",
-    price: 500,
-    image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    name: "Stylos",
-    category: "Stylos",
-    description: "Stylos à bille et stylos couleurs.",
-    price: 200,
-    image: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    name: "Fournitures scolaires",
-    category: "Scolaire",
-    description: "Fournitures pour élèves et étudiants.",
-    price: 2500,
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    name: "Sacs scolaires",
-    category: "Scolaire",
-    description: "Sacs et accessoires scolaires.",
-    price: 5000,
-    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    name: "Matériel de bureau",
-    category: "Bureau",
-    description: "Accessoires et matériel de bureau.",
-    price: 3000,
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    name: "Classeurs et dossiers",
-    category: "Bureau",
-    description: "Classement et archivage.",
-    price: 1500,
-    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    name: "Crayons et couleurs",
-    category: "Scolaire",
-    description: "Crayons, feutres et matériel de dessin.",
-    price: 1000,
-    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    name: "Accessoires bureautiques",
-    category: "Bureau",
-    description: "Accessoires pour vos activités de bureau.",
-    price: 2500,
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80"
-  }
+{name:"Cahiers",category:"Cahiers",description:"Cahiers scolaires et universitaires.",price:500,image:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"},
+{name:"Stylos",category:"Stylos",description:"Stylos à bille et stylos couleurs.",price:200,image:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80"},
+{name:"Fournitures scolaires",category:"Scolaire",description:"Fournitures pour élèves et étudiants.",price:2500,image:"https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"},
+{name:"Sacs scolaires",category:"Scolaire",description:"Sacs et accessoires scolaires.",price:5000,image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80"},
+{name:"Matériel de bureau",category:"Bureau",description:"Accessoires et matériel de bureau.",price:3000,image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"},
+{name:"Classeurs et dossiers",category:"Bureau",description:"Classement et archivage.",price:1500,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
+{name:"Crayons et couleurs",category:"Scolaire",description:"Crayons, feutres et matériel de dessin.",price:1000,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
+{name:"Accessoires bureautiques",category:"Bureau",description:"Accessoires pour vos activités de bureau.",price:2500,image:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80"}
 ];
-  
-let currentCategory = "Tous";
 
+let cart=[];
+let currentCategory="Tous";
 
-function displayProducts(list) {
-  const container = document.getElementById("products");
+function displayProducts(list){
+const container=document.getElementById("products");
+container.innerHTML="";
 
-  if (list.length === 0) {
-    container.innerHTML = "<p>Aucun article trouvé.</p>";
-    return;
-  }
-
-  container.innerHTML = list.map(product => `
-    <div class="product">
-      <img src="${product.image}" alt="${product.name}"
-        loading="lazy"
-        onerror="this.src='https://placehold.co/600x400?text=GX-IVOIRE'">
-      <div class="product-info">
-        <h3>${product.name}</h3>
-        <p>${product.description}</p>
-        <div class="price">
-          ${product.price.toLocaleString('fr-FR')} FCFA
-        </div>
-        <button onclick="addToCart('${product.name.replace(/'/g, "\\'")}')">
-          🛒 Ajouter au panier
-        </button>
-      </div>
-    </div>
-  `).join("");
-  }
-  
-
-function filterProducts(category, button) {
-  currentCategory = category;
-
-  document.querySelectorAll(".categories button").forEach(btn => {
-    btn.classList.remove("active");
-  });
-
-  button.classList.add("active");
-
-  searchProducts();
+list.forEach(product=>{
+const index=productsData.indexOf(product);
+container.innerHTML+=`
+<div class="product">
+<img src="${product.image}" alt="${product.name}" loading="lazy">
+<div class="product-info">
+<h3>${product.name}</h3>
+<p>${product.description}</p>
+<div class="price">${product.price.toLocaleString("fr-FR")} FCFA</div>
+<button onclick="addToCart(${index})">Ajouter au panier</button>
+</div>
+</div>`;
+});
 }
 
-function searchProducts() {
-  const query = document.getElementById("search").value.toLowerCase();
-
-  const filtered = productsData.filter(product => {
-    const matchesCategory =
-      currentCategory === "Tous" || product.category === currentCategory;
-
-    const matchesSearch =
-      product.name.toLowerCase().includes(query) ||
-      product.description.toLowerCase().includes(query);
-
-    return matchesCategory && matchesSearch;
-  });
-
-  displayProducts(filtered);
+function filterProducts(category,button){
+currentCategory=category;
+document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+button.classList.add("active");
+searchProducts();
 }
 
-function addToCart(name) {
-  const product = productsData.find(p => p.name === name);
-
-  if (!product) {
-    alert("Article introuvable.");
-    return;
-  }
-
-  const existing = cart.find(item => item.name === name);
-
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    cart.push({
-      name: product.name,
-      quantity: 1
-    });
-  }
-
-  displayCart();
-  alert("Article ajouté au panier !");
+function searchProducts(){
+const query=document.getElementById("search").value.toLowerCase();
+const filtered=productsData.filter(p=>
+(currentCategory==="Tous"||p.category===currentCategory)&&
+(p.name.toLowerCase().includes(query)||p.description.toLowerCase().includes(query))
+);
+displayProducts(filtered);
 }
 
-function removeFromCart(name) {
-  cart = cart.filter(item => item.name !== name);
-  displayCart();
+function addToCart(index){
+const product=productsData[index];
+const existing=cart.find(item=>item.index===index);
+if(existing){
+existing.quantity++;
+}else{
+cart.push({index:index,quantity:1});
+}
+displayCart();
+alert("Article ajouté au panier !");
 }
 
-
-function displayCart() {
-  const container = document.getElementById("cart-items");
-  const total = document.getElementById("cart-total");
-
-  if (cart.length === 0) {
-    container.innerHTML = "<p>Votre panier est vide.</p>";
-    total.innerHTML = "";
-    return;
-  }
-
-  let totalCommande = 0;
-
-  container.innerHTML = cart.map(item => {
-    const product = productsData.find(p => p.name === item.name);
-    const price = product ? product.price : 0;
-    const subtotal = price * item.quantity;
-
-    totalCommande += subtotal;
-
-    return `
-      <div class="cart-item">
-        <div>
-          <strong>${item.name}</strong><br>
-          Prix unitaire : ${price.toLocaleString('fr-FR')} FCFA<br>
-          Quantité : ${item.quantity}<br>
-          Sous-total : ${subtotal.toLocaleString('fr-FR')} FCFA
-        </div>
-        <button onclick="removeFromCart('${item.name.replace(/'/g, "\\'")}')">
-          Retirer
-        </button>
-      </div>
-    `;
-  }).join("");
-
-  total.innerHTML =
-    "TOTAL : " + totalCommande.toLocaleString('fr-FR') + " FCFA";
+function changeQuantity(index,change){
+const item=cart.find(i=>i.index===index);
+if(!item)return;
+item.quantity+=change;
+if(item.quantity<=0){
+cart=cart.filter(i=>i.index!==index);
+}
+displayCart();
 }
 
+function removeFromCart(index){
+cart=cart.filter(i=>i.index!==index);
+displayCart();
+}
 
+function displayCart(){
+const container=document.getElementById("cart-items");
+const totalElement=document.getElementById("cart-total");
 
-function orderWhatsApp(event) {
-  event.preventDefault();
+if(cart.length===0){
+container.innerHTML="<p>Votre panier est vide.</p>";
+totalElement.innerHTML="";
+return;
+}
 
-  if (cart.length === 0) {
-    alert("Votre panier est vide. Ajoutez des articles avant de commander.");
-    return;
-  }
+let total=0;
+container.innerHTML="";
 
-  let message = "Bonjour GX-IVOIRE SERVICES, je souhaite commander :%0A%0A";
+cart.forEach(item=>{
+const product=productsData[item.index];
+const subtotal=product.price*item.quantity;
+total+=subtotal;
 
-  cart.forEach(item => {
-    message += "- " + item.name + " (Quantité : " + item.quantity + ")%0A";
-  });
+container.innerHTML+=`
+<div class="cart-item">
+<strong>${product.name}</strong><br>
+Prix unitaire : ${product.price.toLocaleString("fr-FR")} FCFA
+<div class="cart-controls">
+<button onclick="changeQuantity(${item.index},-1)">−</button>
+<span>${item.quantity}</span>
+<button onclick="changeQuantity(${item.index},1)">+</button>
+<button class="remove" onclick="removeFromCart(${item.index})">Retirer</button>
+</div>
+Sous-total : ${subtotal.toLocaleString("fr-FR")} FCFA
+</div>`;
+});
 
-  message += "%0AMerci de me confirmer les prix et la disponibilité.";
+totalElement.innerHTML="TOTAL : "+total.toLocaleString("fr-FR")+" FCFA";
+}
 
-  window.open("https://wa.me/2250768693537?text=" + message, "_blank");
+function orderWhatsApp(){
+if(cart.length===0){
+alert("Votre panier est vide.");
+return;
+}
+
+let total=0;
+let message="Bonjour GX-IVOIRE SERVICES, je souhaite commander :%0A%0A";
+
+cart.forEach(item=>{
+const product=productsData[item.index];
+const subtotal=product.price*item.quantity;
+total+=subtotal;
+message+="- "+product.name+" x"+item.quantity+" = "+subtotal.toLocaleString("fr-FR")+" FCFA%0A";
+});
+
+message+="%0ATOTAL : "+total.toLocaleString("fr-FR")+" FCFA";
+message+="%0A%0AMerci de confirmer ma commande.";
+
+window.open("https://wa.me/2250768693537?text="+message,"_blank");
 }
 
 displayProducts(productsData);
@@ -677,4 +271,4 @@ displayCart();
 </script>
 
 </body>
-  </html>
+</html>
