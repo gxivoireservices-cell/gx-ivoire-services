@@ -1,50 +1,117 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GX-IVOIRE SERVICES</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f5f7f5;color:#222;line-height:1.6}
-header{background:#07552e;color:white;text-align:center;padding:20px}
-.logo{width:110px;height:110px;object-fit:contain;border-radius:50%;background:white}
-header h1{margin-top:10px}
-nav{background:#128c49;display:flex;flex-wrap:wrap;justify-content:center;padding:10px}
-nav a{color:white;text-decoration:none;padding:10px;font-weight:bold}
-nav a:hover{background:#07552e}
-.hero{background:#07552e;color:white;text-align:center;padding:40px 20px}
-.hero h2{font-size:28px;margin-bottom:10px}
-.hero button{background:#f7941d;color:white;border:0;padding:12px 20px;border-radius:8px;margin-top:15px}
-section{padding:30px 15px}
-.section-title{text-align:center;color:#07552e;margin-bottom:25px}
-.categories{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:20px}
-.categories button{padding:10px;border:1px solid #128c49;background:white;color:#07552e;border-radius:20px}
-.categories button.active{background:#128c49;color:white}
-.search-box{display:block;width:100%;max-width:500px;margin:0 auto 25px;padding:12px;border:1px solid #ccc;border-radius:8px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;max-width:1100px;margin:auto}
-.product{background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px #ddd}
-.product img{width:100%;height:180px;object-fit:cover}
-.product-info{padding:12px}
-.product h3{color:#07552e}
-.price{color:#f7941d;font-weight:bold;margin:10px 0}
-.product button{width:100%;padding:12px;background:#128c49;color:white;border:0;border-radius:6px}
-.cart-section{background:white;max-width:900px;margin:auto;padding:20px;border-radius:10px}
-.cart-item{border-bottom:1px solid #ddd;padding:15px 0}
-.cart-controls{display:flex;align-items:center;gap:10px;margin:10px 0}
-.cart-controls button{padding:6px 12px;border:0;border-radius:5px;background:#128c49;color:white}
-.remove{background:#e53935!important}
-.cart-total{text-align:center;font-size:20px;font-weight:bold;color:#07552e;margin:20px}
-.whatsapp-btn{display:block;text-align:center;text-decoration:none;background:#25D366;color:white;padding:15px;border-radius:8px;font-weight:bold}
-.services{background:#eaf5ee}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;max-width:1000px;margin:auto}
-.service-card{background:white;padding:20px;border-radius:10px;text-align:center}
-.service-card h3{color:#07552e}
-.contact{text-align:center;background:white}
-.contact a{color:#128c49;font-weight:bold}
-footer{background:#07552e;color:white;text-align:center;padding:20px}
-@media(max-width:500px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}.product img{height:140px}.product-info{padding:8px}.product h3{font-size:15px}}
+*{box-sizing:border-box}
+body{
+ margin:0;font-family:Arial,sans-serif;
+ background:#f5f7f5;color:#222
+}
+header{
+ background:#16803D;color:white;padding:15px;
+ text-align:center
+}
+.logo{
+ width:100px;height:100px;object-fit:contain;
+ border-radius:50%;background:white
+}
+header h1{margin:8px 0;font-size:24px}
+nav{
+ background:#105c2c;padding:12px;
+ display:flex;justify-content:center;flex-wrap:wrap;gap:12px
+}
+nav a{color:white;text-decoration:none;font-weight:bold}
+section{padding:20px}
+.hero{
+ background:linear-gradient(135deg,#16803D,#31a354);
+ color:white;text-align:center;padding:30px 20px
+}
+.hero h2{font-size:27px}
+.btn{
+ display:inline-block;background:#F28C28;color:white;
+ padding:12px 18px;border-radius:8px;
+ text-decoration:none;font-weight:bold;border:none;cursor:pointer
+}
+h2.section-title{
+ text-align:center;color:#16803D
+}
+.categories{
+ display:flex;flex-wrap:wrap;justify-content:center;gap:8px;
+ margin-bottom:20px
+}
+.categories button{
+ background:#16803D;color:white;border:none;
+ padding:10px 14px;border-radius:6px;cursor:pointer
+}
+.categories button.active{background:#F28C28;color:white}
+input[type="search"]{
+ width:100%;max-width:500px;display:block;margin:15px auto;
+ padding:12px;border:1px solid #ccc;border-radius:8px
+}
+.products{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+ gap:15px
+}
+.card{
+ background:white;border-radius:10px;padding:12px;
+ box-shadow:0 2px 8px #0001;text-align:center;
+ position:relative
+}
+.card img{
+ width:100%;height:150px;object-fit:contain;
+ border-radius:8px
+}
+.card h3{font-size:16px}
+.price{font-weight:bold;margin:10px 0}
+.old-price{
+ color:#777;text-decoration:line-through;
+ font-size:13px;display:block
+}
+.new-price{color:#16803D;font-size:17px;font-weight:bold}
+.promo-tag{
+ background:#F28C28;color:white;padding:4px 8px;
+ border-radius:5px;font-size:12px;display:inline-block;
+ margin-bottom:8px
+}
+.card button{
+ background:#16803D;color:white;border:none;
+ padding:10px;border-radius:6px;cursor:pointer;width:100%
+}
+.card button:hover{background:#105c2c}
+.cart-box{
+ background:white;border-radius:10px;padding:15px;
+ box-shadow:0 2px 8px #0001
+}
+.cart-item{
+ border-bottom:1px solid #ddd;padding:12px 0
+}
+.cart-item button{
+ padding:5px 10px;margin:3px;cursor:pointer
+}
+.total{font-size:20px;font-weight:bold;margin:15px 0;color:#16803D}
+.whatsapp{
+ background:#16803D;color:white;padding:14px;
+ border:none;border-radius:8px;width:100%;
+ font-weight:bold;font-size:16px;cursor:pointer
+}
+.service-grid{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+ gap:12px
+}
+.service{
+ background:white;padding:18px;border-radius:10px;
+ text-align:center;box-shadow:0 2px 8px #0001
+}
+footer{
+ background:#105c2c;color:white;text-align:center;padding:20px
+}
+footer a{color:white}
+.empty{text-align:center;color:#777;padding:20px}
 </style>
 </head>
 
@@ -59,6 +126,7 @@ footer{background:#07552e;color:white;text-align:center;padding:20px}
 <nav>
 <a href="#accueil">Accueil</a>
 <a href="#boutique">Boutique</a>
+<a href="#promotions">Promotions</a>
 <a href="#panier">Mon panier</a>
 <a href="#services">Nos services</a>
 <a href="#contact">Contact</a>
@@ -66,240 +134,323 @@ footer{background:#07552e;color:white;text-align:center;padding:20px}
 
 <section class="hero" id="accueil">
 <h2>Bienvenue chez GX-IVOIRE SERVICES</h2>
-<p>Vos fournitures scolaires, articles de bureau et divers services à votre portée.</p>
-<button onclick="document.getElementById('boutique').scrollIntoView()">Voir la boutique</button>
+<p>Vos fournitures scolaires, de bureau et services professionnels au même endroit.</p>
+<a href="#boutique" class="btn">Découvrir la boutique</a>
+</section>
+
+<section id="presentation">
+<h2 class="section-title">Présentation</h2>
+<p style="text-align:center">
+GX-IVOIRE SERVICES vous propose des fournitures scolaires,
+des articles de papeterie, des équipements bureautiques
+et divers services professionnels.
+Nous vous accompagnons pour répondre à vos besoins
+au quotidien.
+</p>
+</section>
+
+<section id="promotions">
+<h2 class="section-title">🔥 Nos promotions</h2>
+<div id="promoProducts" class="products"></div>
 </section>
 
 <section id="boutique">
-<h2 class="section-title">Notre Boutique</h2>
+<h2 class="section-title">🛍️ Notre boutique</h2>
+
+<input type="search" id="searchInput"
+placeholder="Rechercher un article..."
+oninput="displayProducts()">
 
 <div class="categories">
-<button class="active" onclick="filterProducts('Tous',this)">Tous</button>
-<button onclick="filterProducts('Cahiers',this)">Cahiers</button>
-<button onclick="filterProducts('Stylos',this)">Stylos</button>
-<button onclick="filterProducts('Scolaire',this)">Scolaire</button>
-<button onclick="filterProducts('Bureau',this)">Bureau</button>
+<button class="active" onclick="setCategory('Tous',this)">Tous</button>
+<button onclick="setCategory('Cahiers',this)">Cahiers</button>
+<button onclick="setCategory('Stylos',this)">Stylos</button>
+<button onclick="setCategory('Scolaire',this)">Scolaire</button>
+<button onclick="setCategory('Bureau',this)">Bureau</button>
 </div>
 
-<input id="search" class="search-box" placeholder="Rechercher un article..." oninput="searchProducts()">
-
-<div class="products" id="products"></div>
+<div id="products" class="products"></div>
 </section>
 
 <section id="panier">
-<div class="cart-section">
 <h2 class="section-title">🛒 Mon panier</h2>
-<div id="cart-items"></div>
-<div id="cart-total" class="cart-total"></div>
-<button class="whatsapp-btn" onclick="orderWhatsApp()">Commander sur WhatsApp</button>
+<div class="cart-box">
+<div id="cartItems"></div>
+<div id="cartTotal" class="total"></div>
+<button class="whatsapp" onclick="orderWhatsApp()">
+Commander sur WhatsApp
+</button>
 </div>
 </section>
 
-<section id="services" class="services">
-<h2 class="section-title">Nos Services</h2>
-<div class="services-grid">
-<div class="service-card">
-<h3>📚 Librairie & Papeterie</h3>
-<p>Vente de fournitures scolaires, cahiers, stylos et accessoires.</p>
+<section id="services">
+<h2 class="section-title">Nos services</h2>
+<div class="service-grid">
+<div class="service">
+<h3>📚 Librairie</h3>
+<p>Livres, cahiers et fournitures scolaires.</p>
 </div>
-<div class="service-card">
-<h3>💻 Services bureautiques</h3>
-<p>Saisie, traitement, impression et préparation de documents.</p>
+<div class="service">
+<h3>🖊️ Papeterie</h3>
+<p>Articles de papeterie pour tous vos besoins.</p>
 </div>
-<div class="service-card">
-<h3>🏢 Immobilier</h3>
-<p>Accompagnement dans vos recherches immobilières.</p>
+<div class="service">
+<h3>💻 Bureautique</h3>
+<p>Services et fournitures bureautiques.</p>
 </div>
-<div class="service-card">
-<h3>🖨️ Impression</h3>
-<p>Prestations et services liés à vos documents.</p>
+<div class="service">
+<h3>🏠 Immobilier</h3>
+<p>Services et opportunités immobilières.</p>
 </div>
 </div>
 </section>
 
-<section id="contact" class="contact">
+<section id="contact">
 <h2 class="section-title">Contactez-nous</h2>
-<p>GX-IVOIRE SERVICES</p>
-<p>WhatsApp / Téléphone :</p>
-<p><a href="https://wa.me/2250768693537">07 68 69 35 37</a></p>
-<p><a href="https://wa.me/2250768693537?text=Bonjour%20GX-IVOIRE%20SERVICES">Écrire sur WhatsApp</a></p>
+<div class="service">
+<p><strong>GX-IVOIRE SERVICES</strong></p>
+<p>Téléphone : 0768693537</p>
+<a class="btn"
+href="https://wa.me/2250768693537?text=Bonjour%20GX-IVOIRE%20SERVICES"
+target="_blank">
+Nous contacter sur WhatsApp
+</a>
+</div>
 </section>
 
 <footer>
-<p><strong>GX-IVOIRE SERVICES</strong></p>
+<p>GX-IVOIRE SERVICES</p>
 <p>Librairie • Papeterie • Bureautique • Immobilier</p>
 <p>© 2026 GX-IVOIRE SERVICES</p>
 </footer>
 
 <script>
+
 const productsData = [
-{name:"Cahier 100 pages",category:"Cahiers",description:"Cahier scolaire 100 pages.",price:300,image:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"},
-{name:"Cahier 200 pages",category:"Cahiers",description:"Cahier scolaire 200 pages.", price: 400, oldPrice: 500,image:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"},
-{name:"Cahier 300 pages",category:"Cahiers",description:"Cahier scolaire 300 pages.",price:750,image:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"},
-{name:"Cahier 500 pages",category:"Cahiers",description:"Grand cahier 500 pages.",price:1200,image:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"},
-{name:"Bloc-notes",category:"Cahiers",description:"Bloc-notes pour prise de notes.", price: 470, oldPrice: 550,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
-{name:"Registre",category:"Bureau",description:"Registre de bureau.",price:2500,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
-{name:"Stylo bleu",category:"Stylos",description:"Stylo à bille bleu.",price:200,image:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80"},
-{name:"Stylo rouge",category:"Stylos",description:"Stylo à bille rouge.",price:100,image:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80"},
-{name:"Stylo noir",category:"Stylos",description:"Stylo à bille noir.",price:100,image:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80"},
-{name:"Crayon HB",category:"Scolaire",description:"Crayon graphite HB.", price: 100, oldPrice: 150,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
-{name:"Gomme",category:"Scolaire",description:"Gomme pour crayon.",price:100,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
-{name:"Taille-crayon",category:"Scolaire",description:"Taille-crayon scolaire.",price:150,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
-{name:"Règle 30 cm",category:"Scolaire",description:"Règle graduée 30 cm.",price:300,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
-{name:"Crayons de couleur",category:"Scolaire",description:"Boîte de crayons de couleur.",price:1500,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
-{name:"Feutres",category:"Scolaire",description:"Feutres de coloriage.",price:1500,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
-{name:"Ardoise",category:"Scolaire",description:"Ardoise scolaire.",price:1000,image:"https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"},
-{name:"Sac scolaire",category:"Scolaire",description:"Sac pour élèves.",price:5000,image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80"},
-{name:"Calculatrice",category:"Bureau",description:"Calculatrice de bureau.",price:2500,image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"},
-{name:"Ramette papier A4",category:"Bureau",description:"Papier A4 pour impression.",price:3000,image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"},
-{name:"Agrafeuse",category:"Bureau",description:"Agrafeuse de bureau.",price:500,image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"},
-{name:"Trombones",category:"Bureau",description:"Boîte de trombones.",price:500,image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"},
-{name:"Chemises cartonnées",category:"Bureau",description:"Chemises de classement.",price:250,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
-{name:"Classeurs",category:"Bureau",description:"Classeur pour documents.",price:1500,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
-{name:"Enveloppes",category:"Bureau",description:"Enveloppes pour courrier.",price:100,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
-{name:"Scotch",category:"Bureau",description:"Ruban adhésif.",price:500,image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"},
-{name:"Colle",category:"Scolaire",description:"Colle pour travaux scolaires.",price:500,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
-{name:"Ciseaux",category:"Scolaire",description:"Ciseaux scolaires.",price:1000,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
-{name:"Papier Bristol",category:"Scolaire",description:"Feuilles Bristol.",price:500,image:"https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"},
-{name:"Pochette plastique",category:"Bureau",description:"Pochette de protection documents.",price:100,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
-{name:"Correcteur",category:"Stylos",description:"Correcteur de texte.",price:500,image:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80"}
+
+{name:"Cahier 100 pages",price:400,oldPrice:500,image:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=400&q=80",category:"Cahiers"},
+
+{name:"Cahier 200 pages",price:750,image:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=400&q=80",category:"Cahiers"},
+
+{name:"Bloc-notes",price:600,oldPrice:750,image:"https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=400&q=80",category:"Cahiers"},
+
+{name:"Registre",price:1500,image:"https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80",category:"Cahiers"},
+
+{name:"Stylo à bille",price:250,oldPrice:300,image:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=400&q=80",category:"Stylos"},
+
+{name:"Stylo bleu",price:200,image:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=400&q=80",category:"Stylos"},
+
+{name:"Stylo rouge",price:200,image:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=400&q=80",category:"Stylos"},
+
+{name:"Crayon HB",price:150,image:"https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=400&q=80",category:"Scolaire"},
+
+{name:"Gomme",price:100,image:"https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=400&q=80",category:"Scolaire"},
+
+{name:"Taille-crayon",price:150,image:"https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=400&q=80",category:"Scolaire"},
+
+{name:"Règle 30 cm",price:200,image:"https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=400&q=80",category:"Scolaire"},
+
+{name:"Crayons de couleur",price:1000,image:"https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=400&q=80",category:"Scolaire"},
+
+{name:"Feutres",price:1000,image:"https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=400&q=80",category:"Scolaire"},
+
+{name:"Ardoise",price:1000,image:"https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=400&q=80",category:"Scolaire"},
+
+{name:"Sac scolaire",price:5000,image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=400&q=80",category:"Scolaire"},
+
+{name:"Calculatrice",price:2500,image:"https://images.unsplash.com/photo-1587145820266-a5951ee6f620?auto=format&fit=crop&w=400&q=80",category:"Bureau"},
+
+{name:"Ramette papier A4",price:3500,image:"https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=400&q=80",category:"Bureau"},
+
+{name:"Agrafeuse",price:2000,image:"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=400&q=80",category:"Bureau"},
+
+{name:"Trombones",price:500,image:"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=400&q=80",category:"Bureau"},
+
+{name:"Chemises cartonnées",price:500,image:"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=400&q=80",category:"Bureau"},
+
+{name:"Classeur",price:1500,image:"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=400&q=80",category:"Bureau"},
+
+{name:"Enveloppes",price:500,image:"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=400&q=80",category:"Bureau"},
+
+{name:"Scotch",price:500,image:"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=400&q=80",category:"Bureau"},
+
+{name:"Colle",price:500,image:"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=400&q=80",category:"Scolaire"},
+
+{name:"Ciseaux",price:750,image:"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=400&q=80",category:"Scolaire"},
+
+{name:"Papier Bristol",price:1000,image:"https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=400&q=80",category:"Scolaire"},
+
+{name:"Pochettes plastiques",price:1000,image:"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=400&q=80",category:"Bureau"},
+
+{name:"Correcteur",price:500,image:"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=400&q=80",category:"Bureau"},
+
+{name:"Matériel de bureau",price:3000,image:"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=400&q=80",category:"Bureau"},
+
+{name:"Accessoires bureautiques",price:2500,image:"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=400&q=80",category:"Bureau"}
+
 ];
 
 let cart=[];
 let currentCategory="Tous";
 
-function displayProducts(list){
-const container=document.getElementById("products");
-container.innerHTML="";
+function formatPrice(price){
+return price.toLocaleString("fr-FR")+" FCFA";
+}
 
-list.forEach(product=>{
-const index=productsData.indexOf(product);
-container.innerHTML+=`
-<div class="product">
+function productCard(product,index){
+
+let priceHTML=product.oldPrice
+? `<span class="promo-tag">PROMO</span>
+<span class="old-price">${formatPrice(product.oldPrice)}</span>
+<span class="new-price">${formatPrice(product.price)}</span>`
+: `<div class="price">${formatPrice(product.price)}</div>`;
+
+return `
+<div class="card">
 <img src="${product.image}" alt="${product.name}" loading="lazy">
-<div class="product-info">
 <h3>${product.name}</h3>
-<p>${product.description}</p>
-<div class= »price »>
-  ${
-    Product.oldPrice
-      ? `<span style= »text-decoration :line-through ;color :gray ;font-size :14px ; »>${product.oldPrice.toLocaleString(« fr-FR »)} FCFA</span>
-         <span style= »color :red ;font-weight :bold ; »>${product.price.toLocaleString(« fr-FR »)} FCFA</span>
-         <span style= »background :red ;color :white ;padding :3px 6px ;border-radius :5px ;font-size :12px ; »>PROMO</span>`
-      : `${product.price.toLocaleString(« fr-FR »)} FCFA`
-  }
-</div>
+<div class="price">${priceHTML}</div>
 <button onclick="addToCart(${index})">Ajouter au panier</button>
-</div>
 </div>`;
-});
 }
 
-function filterProducts(category,button){
-currentCategory=category;
-document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
-button.classList.add("active");
-searchProducts();
-}
+function displayProducts(){
 
-function searchProducts(){
-const query=document.getElementById("search").value.toLowerCase();
-const filtered=productsData.filter(p=>
+let container=document.getElementById("products");
+let search=document.getElementById("searchInput").value.toLowerCase();
+
+let filtered=productsData.map((p,i)=>({...p,index:i}))
+.filter(p=>
 (currentCategory==="Tous"||p.category===currentCategory)&&
-(p.name.toLowerCase().includes(query)||p.description.toLowerCase().includes(query))
+p.name.toLowerCase().includes(search)
 );
-displayProducts(filtered);
+
+container.innerHTML=filtered.length
+? filtered.map(p=>productCard(p,p.index)).join("")
+: `<p class="empty">Aucun article trouvé.</p>`;
+}
+
+function displayPromotions(){
+
+let container=document.getElementById("promoProducts");
+let promos=productsData.map((p,i)=>({...p,index:i}))
+.filter(p=>p.oldPrice);
+
+container.innerHTML=promos.length
+?promos.map(p=>productCard(p,p.index)).join("")
+:`<p class="empty">Aucune promotion pour le moment.</p>`;
+}
+
+function setCategory(category,button){
+
+currentCategory=category;
+
+document.querySelectorAll(".categories button")
+.forEach(b=>b.classList.remove("active"));
+
+button.classList.add("active");
+
+displayProducts();
 }
 
 function addToCart(index){
-const product=productsData[index];
-const existing=cart.find(item=>item.index===index);
-if(existing){
-existing.quantity++;
+
+let product=productsData[index];
+let found=cart.find(item=>item.index===index);
+
+if(found){
+found.quantity++;
 }else{
-cart.push({index:index,quantity:1});
+cart.push({
+index:index,
+name:product.name,
+price:product.price,
+quantity:1
+});
 }
+
 displayCart();
-alert("Article ajouté au panier !");
 }
 
 function changeQuantity(index,change){
-const item=cart.find(i=>i.index===index);
+
+let item=cart.find(i=>i.index===index);
+
 if(!item)return;
+
 item.quantity+=change;
+
 if(item.quantity<=0){
 cart=cart.filter(i=>i.index!==index);
 }
+
 displayCart();
 }
 
 function removeFromCart(index){
+
 cart=cart.filter(i=>i.index!==index);
 displayCart();
 }
 
 function displayCart(){
-const container=document.getElementById("cart-items");
-const totalElement=document.getElementById("cart-total");
+
+let container=document.getElementById("cartItems");
 
 if(cart.length===0){
-container.innerHTML="<p>Votre panier est vide.</p>";
-totalElement.innerHTML="";
+container.innerHTML='<p class="empty">Votre panier est vide.</p>';
+document.getElementById("cartTotal").innerHTML="Total : 0 FCFA";
 return;
 }
 
-let total=0;
-container.innerHTML="";
-
-cart.forEach(item=>{
-const product=productsData[item.index];
-const subtotal=product.price*item.quantity;
-total+=subtotal;
-
-container.innerHTML+=`
+container.innerHTML=cart.map(item=>`
 <div class="cart-item">
-<strong>${product.name}</strong><br>
-Prix unitaire : ${product.price.toLocaleString("fr-FR")} FCFA
-<div class="cart-controls">
+<strong>${item.name}</strong><br>
+${formatPrice(item.price)}<br>
+Quantité :
 <button onclick="changeQuantity(${item.index},-1)">−</button>
-<span>${item.quantity}</span>
+${item.quantity}
 <button onclick="changeQuantity(${item.index},1)">+</button>
-<button class="remove" onclick="removeFromCart(${item.index})">Retirer</button>
+<button onclick="removeFromCart(${item.index})">Retirer</button>
 </div>
-Sous-total : ${subtotal.toLocaleString("fr-FR")} FCFA
-</div>`;
-});
+`).join("");
 
-totalElement.innerHTML="TOTAL : "+total.toLocaleString("fr-FR")+" FCFA";
+let total=cart.reduce((sum,item)=>sum+item.price*item.quantity,0);
+
+document.getElementById("cartTotal").innerHTML=
+"Total : "+formatPrice(total);
 }
 
 function orderWhatsApp(){
+
 if(cart.length===0){
 alert("Votre panier est vide.");
 return;
 }
 
-let total=0;
-let message="Bonjour GX-IVOIRE SERVICES, je souhaite commander :%0A%0A";
+let message="Bonjour GX-IVOIRE SERVICES, je souhaite commander :\n\n";
 
 cart.forEach(item=>{
-const product=productsData[item.index];
-const subtotal=product.price*item.quantity;
-total+=subtotal;
-message+="- "+product.name+" x"+item.quantity+" = "+subtotal.toLocaleString("fr-FR")+" FCFA%0A";
+message+=item.name+" x "+item.quantity+
+" = "+formatPrice(item.price*item.quantity)+"\n";
 });
 
-message+="%0ATOTAL : "+total.toLocaleString("fr-FR")+" FCFA";
-message+="%0A%0AMerci de confirmer ma commande.";
+let total=cart.reduce((sum,item)=>sum+item.price*item.quantity,0);
 
-window.open("https://wa.me/2250768693537?text="+message,"_blank");
+message+="\nTOTAL : "+formatPrice(total);
+message+="\n\nMerci de confirmer ma commande.";
+
+let url="https://wa.me/2250768693537?text="+encodeURIComponent(message);
+
+window.open(url,"_blank");
 }
 
-displayProducts(productsData);
+displayProducts();
+displayPromotions();
 displayCart();
+
 </script>
 
 </body>
-</html>
-
-
+  </html>
+  
