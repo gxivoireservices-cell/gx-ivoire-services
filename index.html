@@ -603,6 +603,7 @@ function removeFromCart(name) {
   displayCart();
 }
 
+
 function displayCart() {
   const container = document.getElementById("cart-items");
   const total = document.getElementById("cart-total");
@@ -613,17 +614,35 @@ function displayCart() {
     return;
   }
 
-  container.innerHTML = cart.map(item => `
-    <div class="cart-item">
-      <span>${item.name} × ${item.quantity}</span>
-      <button onclick="removeFromCart('${item.name.replace(/'/g, "\\'")}')">
-        Retirer
-      </button>
-    </div>
-  `).join("");
+  let totalCommande = 0;
 
-  total.innerHTML = "Prix total : à confirmer avec le vendeur";
+  container.innerHTML = cart.map(item => {
+    const product = productsData.find(p => p.name === item.name);
+    const price = product ? product.price : 0;
+    const subtotal = price * item.quantity;
+
+    totalCommande += subtotal;
+
+    return `
+      <div class="cart-item">
+        <div>
+          <strong>${item.name}</strong><br>
+          Prix unitaire : ${price.toLocaleString('fr-FR')} FCFA<br>
+          Quantité : ${item.quantity}<br>
+          Sous-total : ${subtotal.toLocaleString('fr-FR')} FCFA
+        </div>
+        <button onclick="removeFromCart('${item.name.replace(/'/g, "\\'")}')">
+          Retirer
+        </button>
+      </div>
+    `;
+  }).join("");
+
+  total.innerHTML =
+    "TOTAL : " + totalCommande.toLocaleString('fr-FR') + " FCFA";
 }
+
+
 
 function orderWhatsApp(event) {
   event.preventDefault();
