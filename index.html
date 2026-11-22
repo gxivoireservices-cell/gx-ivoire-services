@@ -526,6 +526,7 @@ const productsData = [
   
 let currentCategory = "Tous";
 
+
 function displayProducts(list) {
   const container = document.getElementById("products");
 
@@ -534,7 +535,7 @@ function displayProducts(list) {
     return;
   }
 
-  container.innerHTML = list.map((product, index) => `
+  container.innerHTML = list.map(product => `
     <div class="product">
       <img src="${product.image}" alt="${product.name}"
         loading="lazy"
@@ -542,14 +543,17 @@ function displayProducts(list) {
       <div class="product-info">
         <h3>${product.name}</h3>
         <p>${product.description}</p>
-        <div class="price">Prix sur demande</div>
+        <div class="price">
+          ${product.price.toLocaleString('fr-FR')} FCFA
+        </div>
         <button onclick="addToCart('${product.name.replace(/'/g, "\\'")}')">
-          Ajouter au panier
+          🛒 Ajouter au panier
         </button>
       </div>
     </div>
   `).join("");
-}
+  }
+  
 
 function filterProducts(category, button) {
   currentCategory = category;
