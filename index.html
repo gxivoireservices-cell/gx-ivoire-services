@@ -28,10 +28,57 @@ nav{
 nav a{color:white;text-decoration:none;font-weight:bold}
 section{padding:20px}
 .hero{
- background:linear-gradient(135deg,#16803D,#31a354);
- color:white;text-align:center;padding:30px 20px
+background:linear-gradient(135deg,#105c2c,#16803D,#31a354);
+color:white;
+text-align:center;
+padding:55px 20px;
+border-radius:0 0 25px 25px;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
-.hero h2{font-size:27px}
+
+.hero-content{
+max-width:800px;
+margin:auto;
+}
+
+.hero-badge{
+display:inline-block;
+background:#F28C28;
+color:white;
+padding:8px 14px;
+border-radius:30px;
+font-weight:bold;
+font-size:14px;
+margin-bottom:15px;
+}
+
+.hero h2{
+font-size:30px;
+margin:10px 0 15px;
+}
+
+.hero p{
+font-size:17px;
+line-height:1.7;
+max-width:650px;
+margin:0 auto 25px;
+}
+
+.hero .btn{
+display:inline-block;
+background:#F28C28;
+color:white;
+padding:14px 22px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.hero .btn:hover{
+background:#e67813;
+transform:scale(1.04);
+}
 .btn{
  display:inline-block;background:#F28C28;color:white;
  padding:12px 18px;border-radius:8px;
@@ -165,9 +212,16 @@ footer a{color:white}
 </nav>
 
 <section class="hero" id="accueil">
-<h2>Bienvenue chez GX-IVOIRE SERVICES</h2>
-<p>Vos fournitures scolaires, de bureau et services professionnels au même endroit.</p>
-<a href="#boutique" class="btn">Découvrir la boutique</a>
+<div class="hero-content">
+<span class="hero-badge">🟢 GX-IVOIRE SERVICES</span>
+<h2>Bienvenue dans votre boutique en ligne !</h2>
+<p>
+Découvrez nos fournitures scolaires, articles de papeterie,
+matériel de bureau et bien plus encore.
+Qualité, disponibilité et service à votre écoute.
+</p>
+<a href="#boutique" class="btn">🛍️ Découvrir la boutique</a>
+</div>
 </section>
 
 <section id="presentation">
