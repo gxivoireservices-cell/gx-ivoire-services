@@ -169,6 +169,11 @@ au quotidien.
 <div id="newProducts" class="products-grid"></div>
 </section>
  
+ <section id="populaires">
+<h2 class="section-title">⭐ Articles populaires</h2>
+<div id="popularProducts" class="products-grid"></div>
+ </section>
+ 
 <section id="boutique">
 <h2 class="section-title">🛍️ Notre boutique</h2>
 
@@ -352,6 +357,12 @@ document.getElementById("newProducts").innerHTML =
 newItems.map(product => productCard({...product,isNew:true}, productsData.indexOf(product))).join("");
 }
  
+function displayPopularProducts(){
+const popularItems = productsData.slice(0,6);
+document.getElementById("popularProducts").innerHTML =
+popularItems.map(product => productCard(product, productsData.indexOf(product))).join("");
+}
+ 
 function displayPromotions(){
 
 let container=document.getElementById("promoProducts");
@@ -469,6 +480,7 @@ window.open(url,"_blank");
 
 displayProducts();
 displayNewProducts();
+displayPopularProducts();
 displayPromotions();
 displayCart();
 
