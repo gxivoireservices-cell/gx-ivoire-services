@@ -153,7 +153,12 @@ au quotidien.
 <h2 class="section-title">🔥 Nos promotions</h2>
 <div id="promoProducts" class="products"></div>
 </section>
-
+ 
+<section id="nouveautes">
+<h2 class="section-title">🆕 Nouveautés</h2>
+<div id="newProducts" class="products-grid"></div>
+</section>
+ 
 <section id="boutique">
 <h2 class="section-title">🛍️ Notre boutique</h2>
 
@@ -329,7 +334,13 @@ container.innerHTML=filtered.length
 ? filtered.map(p=>productCard(p,p.index)).join("")
 : `<p class="empty">Aucun article trouvé.</p>`;
 }
-
+ 
+function displayNewProducts(){
+const newItems = productsData.slice(-6);
+document.getElementById("newProducts").innerHTML =
+newItems.map(product => productCard(product, productsData.indexOf(product))).join("");
+ }
+ 
 function displayPromotions(){
 
 let container=document.getElementById("promoProducts");
@@ -446,6 +457,7 @@ window.open(url,"_blank");
 }
 
 displayProducts();
+displayNewProducts();
 displayPromotions();
 displayCart();
 
