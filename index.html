@@ -78,6 +78,16 @@ input[type="search"]{
  border-radius:5px;font-size:12px;display:inline-block;
  margin-bottom:8px
 }
+.new-tag{
+background:#16803D;
+color:white;
+padding:5px 10px;
+border-radius:5px;
+font-size:12px;
+font-weight:bold;
+display:inline-block;
+margin-bottom:8px;
+}
 .card button{
  background:#16803D;color:white;border:none;
  padding:10px;border-radius:6px;cursor:pointer;width:100%
@@ -312,6 +322,7 @@ let priceHTML=product.oldPrice
 
 return `
 <div class="card">
+${product.isNew ? '<span class="new-tag">🆕 NOUVEAU</span>' : ''}
 <img src="${product.image}" alt="${product.name}" loading="lazy">
 <h3>${product.name}</h3>
 <div class="price">${priceHTML}</div>
@@ -338,8 +349,8 @@ container.innerHTML=filtered.length
 function displayNewProducts(){
 const newItems = productsData.slice(-6);
 document.getElementById("newProducts").innerHTML =
-newItems.map(product => productCard(product, productsData.indexOf(product))).join("");
- }
+newItems.map(product => productCard({...product,isNew:true}, productsData.indexOf(product))).join("");
+}
  
 function displayPromotions(){
 
