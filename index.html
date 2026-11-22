@@ -464,58 +464,66 @@ footer p {
 </footer>
 
 <script>
+
 const productsData = [
   {
     name: "Cahiers",
     category: "Cahiers",
     description: "Cahiers scolaires et universitaires.",
+    price: 500,
     image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"
   },
   {
     name: "Stylos",
     category: "Stylos",
-    description: "Stylos à bille, stylos couleurs et autres.",
+    description: "Stylos à bille et stylos couleurs.",
+    price: 200,
     image: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80"
   },
   {
     name: "Fournitures scolaires",
     category: "Scolaire",
-    description: "Matériel et fournitures pour élèves et étudiants.",
+    description: "Fournitures pour élèves et étudiants.",
+    price: 2500,
     image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"
   },
   {
     name: "Sacs scolaires",
     category: "Scolaire",
-    description: "Sacs et accessoires pour la rentrée scolaire.",
+    description: "Sacs et accessoires scolaires.",
+    price: 5000,
     image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80"
   },
   {
     name: "Matériel de bureau",
     category: "Bureau",
     description: "Accessoires et matériel de bureau.",
+    price: 3000,
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
   },
   {
     name: "Classeurs et dossiers",
     category: "Bureau",
-    description: "Classement, archivage et organisation.",
+    description: "Classement et archivage.",
+    price: 1500,
     image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"
   },
   {
     name: "Crayons et couleurs",
     category: "Scolaire",
     description: "Crayons, feutres et matériel de dessin.",
+    price: 1000,
     image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"
   },
   {
     name: "Accessoires bureautiques",
     category: "Bureau",
-    description: "Divers accessoires pour vos activités de bureau.",
+    description: "Accessoires pour vos activités de bureau.",
+    price: 2500,
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80"
   }
 ];
-
-let cart = [];
+  
 let currentCategory = "Tous";
 
 function displayProducts(list) {
