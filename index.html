@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -134,14 +133,36 @@ footer{background:#07552e;color:white;text-align:center;padding:20px}
 
 <script>
 const productsData = [
-{name:"Cahiers",category:"Cahiers",description:"Cahiers scolaires et universitaires.",price:500,image:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"},
-{name:"Stylos",category:"Stylos",description:"Stylos à bille et stylos couleurs.",price:200,image:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80"},
-{name:"Fournitures scolaires",category:"Scolaire",description:"Fournitures pour élèves et étudiants.",price:2500,image:"https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"},
-{name:"Sacs scolaires",category:"Scolaire",description:"Sacs et accessoires scolaires.",price:5000,image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80"},
-{name:"Matériel de bureau",category:"Bureau",description:"Accessoires et matériel de bureau.",price:3000,image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"},
-{name:"Classeurs et dossiers",category:"Bureau",description:"Classement et archivage.",price:1500,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
-{name:"Crayons et couleurs",category:"Scolaire",description:"Crayons, feutres et matériel de dessin.",price:1000,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
-{name:"Accessoires bureautiques",category:"Bureau",description:"Accessoires pour vos activités de bureau.",price:2500,image:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80"}
+{name:"Cahier 100 pages",category:"Cahiers",description:"Cahier scolaire 100 pages.",price:300,image:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"},
+{name:"Cahier 200 pages",category:"Cahiers",description:"Cahier scolaire 200 pages.", price: 400, oldPrice: 500,image:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"},
+{name:"Cahier 300 pages",category:"Cahiers",description:"Cahier scolaire 300 pages.",price:750,image:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"},
+{name:"Cahier 500 pages",category:"Cahiers",description:"Grand cahier 500 pages.",price:1200,image:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"},
+{name:"Bloc-notes",category:"Cahiers",description:"Bloc-notes pour prise de notes.", price: 470, oldPrice: 550,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
+{name:"Registre",category:"Bureau",description:"Registre de bureau.",price:2500,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
+{name:"Stylo bleu",category:"Stylos",description:"Stylo à bille bleu.",price:200,image:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80"},
+{name:"Stylo rouge",category:"Stylos",description:"Stylo à bille rouge.",price:100,image:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80"},
+{name:"Stylo noir",category:"Stylos",description:"Stylo à bille noir.",price:100,image:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80"},
+{name:"Crayon HB",category:"Scolaire",description:"Crayon graphite HB.", price: 100, oldPrice: 150,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
+{name:"Gomme",category:"Scolaire",description:"Gomme pour crayon.",price:100,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
+{name:"Taille-crayon",category:"Scolaire",description:"Taille-crayon scolaire.",price:150,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
+{name:"Règle 30 cm",category:"Scolaire",description:"Règle graduée 30 cm.",price:300,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
+{name:"Crayons de couleur",category:"Scolaire",description:"Boîte de crayons de couleur.",price:1500,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
+{name:"Feutres",category:"Scolaire",description:"Feutres de coloriage.",price:1500,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
+{name:"Ardoise",category:"Scolaire",description:"Ardoise scolaire.",price:1000,image:"https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"},
+{name:"Sac scolaire",category:"Scolaire",description:"Sac pour élèves.",price:5000,image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80"},
+{name:"Calculatrice",category:"Bureau",description:"Calculatrice de bureau.",price:2500,image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"},
+{name:"Ramette papier A4",category:"Bureau",description:"Papier A4 pour impression.",price:3000,image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"},
+{name:"Agrafeuse",category:"Bureau",description:"Agrafeuse de bureau.",price:500,image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"},
+{name:"Trombones",category:"Bureau",description:"Boîte de trombones.",price:500,image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"},
+{name:"Chemises cartonnées",category:"Bureau",description:"Chemises de classement.",price:250,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
+{name:"Classeurs",category:"Bureau",description:"Classeur pour documents.",price:1500,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
+{name:"Enveloppes",category:"Bureau",description:"Enveloppes pour courrier.",price:100,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
+{name:"Scotch",category:"Bureau",description:"Ruban adhésif.",price:500,image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"},
+{name:"Colle",category:"Scolaire",description:"Colle pour travaux scolaires.",price:500,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
+{name:"Ciseaux",category:"Scolaire",description:"Ciseaux scolaires.",price:1000,image:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"},
+{name:"Papier Bristol",category:"Scolaire",description:"Feuilles Bristol.",price:500,image:"https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"},
+{name:"Pochette plastique",category:"Bureau",description:"Pochette de protection documents.",price:100,image:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"},
+{name:"Correcteur",category:"Stylos",description:"Correcteur de texte.",price:500,image:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80"}
 ];
 
 let cart=[];
@@ -159,7 +180,15 @@ container.innerHTML+=`
 <div class="product-info">
 <h3>${product.name}</h3>
 <p>${product.description}</p>
-<div class="price">${product.price.toLocaleString("fr-FR")} FCFA</div>
+<div class= »price »>
+  ${
+    Product.oldPrice
+      ? `<span style= »text-decoration :line-through ;color :gray ;font-size :14px ; »>${product.oldPrice.toLocaleString(« fr-FR »)} FCFA</span>
+         <span style= »color :red ;font-weight :bold ; »>${product.price.toLocaleString(« fr-FR »)} FCFA</span>
+         <span style= »background :red ;color :white ;padding :3px 6px ;border-radius :5px ;font-size :12px ; »>PROMO</span>`
+      : `${product.price.toLocaleString(« fr-FR »)} FCFA`
+  }
+</div>
 <button onclick="addToCart(${index})">Ajouter au panier</button>
 </div>
 </div>`;
@@ -272,3 +301,5 @@ displayCart();
 
 </body>
 </html>
+
+
