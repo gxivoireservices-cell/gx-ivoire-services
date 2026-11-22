@@ -585,17 +585,26 @@ function searchProducts() {
 }
 
 function addToCart(name) {
+  const product = productsData.find(p => p.name === name);
+
+  if (!product) {
+    alert("Article introuvable.");
+    return;
+  }
+
   const existing = cart.find(item => item.name === name);
 
   if (existing) {
-    existing.quantity++;
+    existing.quantity += 1;
   } else {
-    cart.push({ name: name, quantity: 1 });
+    cart.push({
+      name: product.name,
+      quantity: 1
+    });
   }
 
   displayCart();
-
-  alert(name + " ajouté au panier !");
+  alert("Article ajouté au panier !");
 }
 
 function removeFromCart(name) {
