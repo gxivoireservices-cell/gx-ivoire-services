@@ -162,6 +162,16 @@ margin-top:15px;
 font-size:16px;
 line-height:1.6;
 }
+.stock-status{
+color:#16803D;
+background:#e8f5e9;
+padding:6px 10px;
+border-radius:20px;
+font-size:13px;
+font-weight:bold;
+display:inline-block;
+margin:5px 0 10px;
+ }
 .card{
 background:white;
 border-radius:14px;
@@ -500,6 +510,7 @@ return `
 ${product.isNew ? '<span class="new-tag">🆕 NOUVEAU</span>' : ''}
 <img src="${product.image}" alt="${product.name}" loading="lazy">
 <h3>${product.name}</h3>
+<p class="stock-status">🟢 En stock</p>
 <div class="price">${priceHTML}</div>
 <button onclick="addToCart(${index})">Ajouter au panier</button>
 </div>`;
