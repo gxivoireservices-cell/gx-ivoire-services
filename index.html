@@ -405,6 +405,25 @@ target="_blank" class="btn">
 </div>
 </section>
  
+<section id="gestion-stock">
+<h2>📦 Gestion de stock</h2>
+
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;background:white">
+<thead>
+<tr style="background:#16803D;color:white">
+<th style="padding:10px;border:1px solid #ddd">Article</th>
+<th style="padding:10px;border:1px solid #ddd">Stock</th>
+<th style="padding:10px;border:1px solid #ddd">État</th>
+<th style="padding:10px;border:1px solid #ddd">Action</th>
+</tr>
+</thead>
+
+<tbody id="stockTable"></tbody>
+</table>
+</div>
+ </section>
+ 
 <section id="contact">
 <h2 class="section-title">Contactez-nous</h2>
 <div class="service">
@@ -689,6 +708,60 @@ displayPopularProducts();
 displayPromotions();
 displayCart();
 
+function renderStock(){
+const table=document.getElementById("stockTable");
+if(!table)return;
+
+table.innerHTML=products.map((p,i)=>{
+let s=p.stock;
+
+let etat=s===null||s===undefined
+?"⚪ À définir"
+:s===0
+?"🔴 Rupture"
+:s<=3
+?"🟠 Stock limité"
+:"🟢 En stock";
+
+return `
+<tr>
+<td style="padding:10px;border:1px solid #ddd">${p.name}</td>
+<td style="padding:10px;border:1px solid #ddd">
+${s===null||s===undefined?"Non défini":s}
+</td>
+<td style="padding:10px;border:1px solid #ddd">${etat}</td>
+<td style="padding:10px;border:1px solid #ddd">
+<button onclick="changeStock(${i},1)">➕</button>
+<button onclick="changeStock(${i},-1)">➖</button>
+</td>
+</tr>
+`;
+}).join("");
+}
+
+function changeStock(i,variation){
+let p=products[i];
+
+if(p.stock===null||p.stock===undefined){
+let q=prompt("Entrez le stock initial de "+p.name);
+if(q===null||q.trim()===""||!Number.isInteger(Number(q))||Number(q)<0){
+alert("Quantité invalide.");
+return;
+}
+p.stock=Number(q);
+}else{
+if(p.stock+variation<0){
+alert("Le stock ne peut pas être négatif.");
+return;
+}
+p.stock+=variation;
+}
+
+renderStock();
+}
+
+renderStock();
+ 
 </script>
 
 <a href="https://wa.me/2250768693537?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20vos%20articles"
