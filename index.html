@@ -609,6 +609,13 @@ let item=cart.find(i=>i.index===index);
 
 if(!item)return;
 
+let product=productsData[index];
+
+if(change>0 && product.stock !== undefined && item.quantity>=product.stock){
+alert("Stock disponible atteint !");
+return;
+}
+
 item.quantity+=change;
 
 if(item.quantity<=0){
