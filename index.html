@@ -410,10 +410,23 @@ target="_blank" class="btn">
 
 <p>Les commandes reçues par WhatsApp peuvent être vérifiées et validées ici.</p>
 
-<button onclick="alert('La validation des commandes sera activée dans la prochaine étape.')"
-style="background:#16803D;color:white;padding:12px;border:none;border-radius:8px">
-Valider une commande
+<div style="background:#fff;padding:15px;border:1px solid #ddd;border-radius:10px;margin-top:15px">
+
+<label>Nom du client :</label>
+<input type="text" id="clientCommande" placeholder="Nom du client" style="width:100%;padding:10px;margin:8px 0">
+
+<label>Numéro WhatsApp :</label>
+<input type="text" id="numeroCommande" placeholder="Numéro du client" style="width:100%;padding:10px;margin:8px 0">
+
+<label>Montant payé :</label>
+<input type="number" id="montantCommande" placeholder="Montant payé en FCFA" style="width:100%;padding:10px;margin:8px 0">
+
+<button onclick="alert('Formulaire prêt. La validation sera activée dans la prochaine étape.')"
+style="background:#16803D;color:white;padding:12px;border:none;border-radius:8px;width:100%">
+Enregistrer la commande
 </button>
+
+</div>
 </section>
  
 <section id="gestion-stock">
