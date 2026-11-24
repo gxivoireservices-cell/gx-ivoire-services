@@ -429,7 +429,7 @@ target="_blank" class="btn">
 <label>Montant payé :</label>
 <input type="number" id="montantCommande" placeholder="Montant payé en FCFA" style="width:100%;padding:10px;margin:8px 0">
 
-<button onclick="alert('Formulaire prêt. La validation sera activée dans la prochaine étape.')"
+<button onclick="validateManualOrder()"
 style="background:#16803D;color:white;padding:12px;border:none;border-radius:8px;width:100%">
 Enregistrer la commande
 </button>
@@ -825,6 +825,54 @@ localStorage.removeItem("gxivoire_history");
 renderStockHistory();
 }
 
+function validateManualOrder(){
+
+let client=document.getElementById("clientCommande").value.trim();
+let numero=document.getElementById("numeroCommande").value.trim();
+let index=document.getElementById("articleCommande").value;
+let q=Number(document.getElementById("quantiteCommande").value);
+let montant=document.getElementById("montantCommande").value;
+
+if(client===""||index===""||!Number.isInteger(q)||q<=0){
+alert("Veuillez renseigner le client, l'article et une quantité valide.");
+return;
+}
+
+let p=productsData[Number(index)];
+
+if(p.stock===null||p.stock===undefined){
+alert("Le stock de cet article n'est pas défini.");
+return;
+}
+
+if(q>p.stock){
+alert("Stock insuffisant pour "+p.name+". Stock disponible : "+p.stock);
+return;
+}
+
+if(!confirm("Confirmer la vente de "+q+" x "+p.name+" pour "+client+" ?")){
+return;
+}
+
+p.stock-=q;
+
+localStorage.setItem("gxivoire_stock",JSON.stringify(
+Object.fromEntries(products.map(p=>[p.name,p.stock]))
+));
+
+recordStockMovement(p.name,"Vente validée",q);
+
+renderStock();
+
+alert("Commande validée et stock mis à jour !");
+
+document.getElementById("clientCommande").value="";
+document.getElementById("numeroCommande").value="";
+document.getElementById("montantCommande").value="";
+document.getElementById("articleCommande").value="";
+document.getElementById("quantiteCommande").value=1;
+ }
+ 
 function renderValidationProducts(){
 const select=document.getElementById("articleCommande");
 if(!select)return;
