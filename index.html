@@ -407,7 +407,12 @@ target="_blank" class="btn">
  
 <section id="gestion-stock">
 <h2>📦 Gestion de stock</h2>
-
+ 
+<div id="stockAlerts" style="margin:15px 0;padding:15px;border-radius:10px;background:#fff3e0;border:1px solid #F28C28">
+<strong>📊 État du stock</strong>
+<p id="stockAlertSummary">Chargement des alertes...</p>
+</div>
+ 
 <div style="overflow-x:auto">
 <table style="width:100%;border-collapse:collapse;background:white">
 <thead>
@@ -719,6 +724,20 @@ displayPopularProducts();
 displayPromotions();
 displayCart();
 
+function updateStockAlerts(){
+const summary=document.getElementById("stockAlertSummary");
+if(!summary)return;
+
+const rupture=products.filter(p=>p.stock===0);
+const faible=products.filter(p=>p.stock>0&&p.stock<=3);
+const nonDefini=products.filter(p=>p.stock===null||p.stock===undefined);
+
+summary.innerHTML=
+"🔴 Rupture : "+rupture.length+" article(s)<br>"+
+"🟠 Stock faible : "+faible.length+" article(s)<br>"+
+"⚪ Stock non défini : "+nonDefini.length+" article(s)";
+}
+
 function renderStock(){
 const table=document.getElementById("stockTable");
 if(!table)return;
@@ -752,6 +771,7 @@ style="width:80px;padding:8px">
 </tr>
 `;
 }).join("");
+updateStockAlerts();
 }
 
 function setStock(i){
