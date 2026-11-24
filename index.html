@@ -880,6 +880,21 @@ Object.fromEntries(products.map(p=>[p.name,p.stock]))
 
 recordStockMovement(p.name,"Vente validée",q);
 
+let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
+
+commandes.unshift({
+date:new Date().toLocaleString("fr-FR"),
+client:client,
+numero:numero,
+article:p.name,
+quantite:q,
+montant:Number(montant||0)
+});
+
+localStorage.setItem("gxivoire_orders",JSON.stringify(commandes));
+
+renderOrderHistory();
+ 
 renderStock();
 
 alert("Commande validée et stock mis à jour !");
