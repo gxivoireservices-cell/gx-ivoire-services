@@ -767,8 +767,6 @@ return;
 let message="Bonjour GX-IVOIRE SERVICES, je souhaite commander :\n\n";
 
 cart.forEach(item=>{
-let p=products.find(prod=>prod.name===item.name);
-if(p)recordStockMovement(item.name,"Vente",item.quantity);
 message+=item.name+" x "+item.quantity+
 " = "+formatPrice(item.price*item.quantity)+"\n";
 });
