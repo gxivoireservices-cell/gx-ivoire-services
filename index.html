@@ -426,8 +426,8 @@ target="_blank" class="btn">
 <label>Quantité vendue :</label>
 <input type="number" id="quantiteCommande" min="1" value="1" style="width:100%;padding:10px;margin:8px 0">
  
-<label>Montant payé :</label>
-<input type="number" id="montantCommande" placeholder="Montant payé en FCFA" style="width:100%;padding:10px;margin:8px 0">
+<label>Montant total de la vente :</label>
+<input type="number" id="montantCommande" placeholder="Montant automatique en FCFA" style="width:100%;padding:10px;margin:8px 0" readonly>
 
 <button onclick="validateManualOrder()"
 style="background:#16803D;color:white;padding:12px;border:none;border-radius:8px;width:100%">
@@ -934,6 +934,22 @@ productsData.forEach((p,i)=>{
 select.innerHTML+=
 '<option value="'+i+'">'+p.name+' - '+formatPrice(p.price)+'</option>';
 });
+}
+
+function calculateOrderAmount(){
+
+let index=document.getElementById("articleCommande").value;
+let q=Number(document.getElementById("quantiteCommande").value);
+let montant=document.getElementById("montantCommande");
+
+if(index===""||q<=0){
+montant.value="";
+return;
+}
+
+let p=productsData[Number(index)];
+
+montant.value=p.price*q;
 }
  
 function updateStockAlerts(){
