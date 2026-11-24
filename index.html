@@ -821,6 +821,24 @@ localStorage.setItem("gxivoire_history",JSON.stringify(history));
 renderStockHistory();
 }
 
+function renderOrderHistory(){
+const table=document.getElementById("orderHistory");
+if(!table)return;
+
+let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
+
+table.innerHTML=commandes.map(c=>`
+<tr>
+<td style="padding:10px;border:1px solid #ddd">${c.date}</td>
+<td style="padding:10px;border:1px solid #ddd">${c.client}</td>
+<td style="padding:10px;border:1px solid #ddd">${c.numero}</td>
+<td style="padding:10px;border:1px solid #ddd">${c.article}</td>
+<td style="padding:10px;border:1px solid #ddd">${c.quantite}</td>
+<td style="padding:10px;border:1px solid #ddd">${formatPrice(c.montant)}</td>
+</tr>
+`).join("");
+}
+ 
 function renderStockHistory(){
 const table=document.getElementById("stockHistory");
 if(!table)return;
@@ -1022,6 +1040,7 @@ Object.fromEntries(products.map(p=>[p.name,p.stock]))
 renderStock();
 renderStockHistory();
 renderValidationProducts();
+renderOrderHistory();
  
 </script>
 
