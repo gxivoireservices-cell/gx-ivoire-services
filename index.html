@@ -419,7 +419,7 @@ target="_blank" class="btn">
 <input type="text" id="numeroCommande" placeholder="Numéro du client" style="width:100%;padding:10px;margin:8px 0">
 
 <label>Article vendu :</label>
-<select id="articleCommande" style="width:100%;padding:10px;margin:8px 0">
+<select id="articleCommande" onchange="calculateOrderAmount()" style="width:100%;padding:10px;margin:8px 0">
 <option value="">Choisir un article</option>
 </select>
 
