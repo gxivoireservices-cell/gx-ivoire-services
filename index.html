@@ -738,16 +738,39 @@ return `
 <tr>
 <td style="padding:10px;border:1px solid #ddd">${p.name}</td>
 <td style="padding:10px;border:1px solid #ddd">
-${s===null||s===undefined?"Non défini":s}
+<input type="number" min="0"
+value="${s===null||s===undefined?"":s}"
+id="stockInput${i}"
+style="width:80px;padding:8px">
 </td>
 <td style="padding:10px;border:1px solid #ddd">${etat}</td>
 <td style="padding:10px;border:1px solid #ddd">
+<button onclick="setStock(${i})">💾</button>
 <button onclick="changeStock(${i},1)">➕</button>
 <button onclick="changeStock(${i},-1)">➖</button>
 </td>
 </tr>
 `;
 }).join("");
+}
+
+function setStock(i){
+let input=document.getElementById("stockInput"+i);
+let q=input.value;
+
+if(q===""||!Number.isInteger(Number(q))||Number(q)<0){
+alert("Veuillez entrer une quantité valide.");
+return;
+}
+
+products[i].stock=Number(q);
+
+localStorage.setItem("gxivoire_stock",JSON.stringify(
+Object.fromEntries(products.map(p=>[p.name,p.stock]))
+));
+
+renderStock();
+alert("Stock mis à jour !");
 }
 
 function changeStock(i,variation){
