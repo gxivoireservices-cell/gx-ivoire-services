@@ -722,6 +722,15 @@ if(cart.length===0){
 alert("Votre panier est vide.");
 return;
 }
+ 
+for(let item of cart){
+let p=productsData[item.index];
+
+if(p.stock!==undefined && p.stock!==null && item.quantity>p.stock){
+alert("Stock insuffisant pour : "+item.name);
+return;
+}
+}
 
 let message="Bonjour GX-IVOIRE SERVICES, je souhaite commander :\n\n";
 
