@@ -510,7 +510,16 @@ const productsData = [
 ];
 
 const products = productsData;
+ 
+// Charger les stocks sauvegardés
+const savedStock = JSON.parse(localStorage.getItem("gxivoire_stock") || "{}");
 
+products.forEach(p => {
+if (savedStock[p.name] !== undefined){
+p.stock = savedStock[p.name];
+}
+});
+ 
 let cart=[];
 let currentCategory="Tous";
 
@@ -760,6 +769,10 @@ p.stock+=variation;
 }
 
 renderStock();
+ 
+localStorage.setItem("gxivoire_stock",JSON.stringify(
+Object.fromEntries(products.map(p=>[p.name,p.stock]))
+));
 }
 
 renderStock();
