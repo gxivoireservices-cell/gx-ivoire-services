@@ -429,6 +429,13 @@ target="_blank" class="btn">
 <label>Montant total de la vente :</label>
 <input type="number" id="montantCommande" placeholder="Montant automatique en FCFA" style="width:100%;padding:10px;margin:8px 0" readonly>
 
+<label>Statut du paiement :</label>
+<select id="statutPaiement" style="width:100%;padding:10px;margin:8px 0">
+<option value="Non payé">Non payé</option>
+<option value="Partiellement payé">Partiellement payé</option>
+<option value="Payé">Payé</option>
+</select>
+ 
 <button onclick="validateManualOrder()"
 style="background:#16803D;color:white;padding:12px;border:none;border-radius:8px;width:100%">
 Enregistrer la commande
