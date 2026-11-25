@@ -835,7 +835,7 @@ if(!table)return;
 
 let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
 
-table.innerHTML=commandes.map(c=>`
+table.innerHTML=commandes.map((c,i)=>`
 <tr>
 <td style="padding:10px;border:1px solid #ddd">${c.date}</td>
 <td style="padding:10px;border:1px solid #ddd">${c.client}</td>
