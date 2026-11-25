@@ -829,6 +829,51 @@ localStorage.setItem("gxivoire_history",JSON.stringify(history));
 renderStockHistory();
 }
 
+function cancelOrder(i){
+
+let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
+
+let c=commandes[i];
+
+if(!c)return;
+
+if(c.annulee){
+alert("Cette commande est déjà annulée.");
+return;
+}
+
+if(!confirm("Annuler cette commande et restituer le stock ?")){
+return;
+}
+
+let p=products.find(x=>x.name===c.article);
+
+if(!p){
+alert("Article introuvable dans le stock.");
+return;
+}
+
+p.stock+=c.quantite;
+
+localStorage.setItem("gxivoire_stock",JSON.stringify(
+Object.fromEntries(products.map(p=>[p.name,p.stock]))
+));
+
+recordStockMovement(p.name,"Annulation de vente",c.quantite);
+
+c.annulee=true;
+
+commandes[i]=c;
+
+localStorage.setItem("gxivoire_orders",JSON.stringify(commandes));
+
+renderStock();
+renderStockHistory();
+renderOrderHistory();
+
+alert("Commande annulée et stock restitué !");
+}
+ 
 function renderOrderHistory(){
 const table=document.getElementById("orderHistory");
 if(!table)return;
