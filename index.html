@@ -833,6 +833,48 @@ localStorage.setItem("gxivoire_history",JSON.stringify(history));
 renderStockHistory();
 }
 
+function exportOrdersCSV(){
+
+let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
+
+if(commandes.length===0){
+alert("Aucune commande à exporter.");
+return;
+}
+
+let lignes=[
+["Date","Client","Téléphone","Article","Quantité","Montant","Statut","Annulée"]
+];
+
+commandes.forEach(c=>{
+lignes.push([
+c.date,
+c.client,
+c.numero,
+c.article,
+c.quantite,
+c.montant,
+c.statut||"Non renseigné",
+c.annulee?"Oui":"Non"
+]);
+});
+
+let csv=lignes.map(ligne=>
+ligne.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(";")
+).join("\n");
+
+let blob=new Blob(["\uFEFF"+csv],{type:"text/csv;charset=utf-8;"});
+
+let url=URL.createObjectURL(blob);
+
+let a=document.createElement("a");
+a.href=url;
+a.download="GX-IVOIRE_commandes.csv";
+a.click();
+
+URL.revokeObjectURL(url);
+}
+ 
 function cancelOrder(i){
 
 let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
