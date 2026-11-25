@@ -878,7 +878,9 @@ alert("Commande annulée et stock restitué !");
 function renderOrderHistory(){
 const table=document.getElementById("orderHistory");
 if(!table)return;
-
+ 
+let recherche=document.getElementById("searchOrders");
+let terme=recherche?recherche.value.toLowerCase().trim():"";
 let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
 
 table.innerHTML=commandes.map((c,i)=>`
