@@ -961,6 +961,30 @@ renderOrderHistory();
 
 alert("Commande annulée et stock restitué !");
 }
+
+function updateSalesDashboard(){
+
+let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
+
+let actives=commandes.filter(c=>!c.annulee);
+let annulees=commandes.filter(c=>c.annulee);
+
+let total=actives.reduce((s,c)=>s+Number(c.montant||0),0);
+
+let paye=actives.reduce((s,c)=>{
+if(c.statut==="Payé")return s+Number(c.montant||0);
+if(c.statut==="Partiellement payé")return s+Number(c.montantPaye||0);
+return s;
+},0);
+
+let reste=total-paye;
+
+document.getElementById("totalOrders").textContent=actives.length;
+document.getElementById("totalRevenue").textContent=formatPrice(total)+" FCFA";
+document.getElementById("paidRevenue").textContent=formatPrice(paye)+" FCFA";
+document.getElementById("unpaidRevenue").textContent=formatPrice(reste)+" FCFA";
+document.getElementById("cancelledOrders").textContent=annulees.length;
+ }
  
 function renderOrderHistory(){
 const table=document.getElementById("orderHistory");
