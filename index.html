@@ -452,6 +452,39 @@ Enregistrer la commande
 </div>
 </section>
 
+<section id="tableau-bord">
+<h2>📊 Tableau de bord des ventes</h2>
+
+<div id="salesDashboard" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px">
+
+<div style="background:#16803D;color:white;padding:20px;border-radius:10px">
+<h3>Commandes</h3>
+<p id="totalOrders">0</p>
+</div>
+
+<div style="background:#105c2c;color:white;padding:20px;border-radius:10px">
+<h3>Chiffre d'affaires</h3>
+<p id="totalRevenue">0 FCFA</p>
+</div>
+
+<div style="background:#F28C28;color:white;padding:20px;border-radius:10px">
+<h3>Montant payé</h3>
+<p id="paidRevenue">0 FCFA</p>
+</div>
+
+<div style="background:#d97706;color:white;padding:20px;border-radius:10px">
+<h3>Reste à encaisser</h3>
+<p id="unpaidRevenue">0 FCFA</p>
+</div>
+
+<div style="background:#dc2626;color:white;padding:20px;border-radius:10px">
+<h3>Commandes annulées</h3>
+<p id="cancelledOrders">0</p>
+</div>
+
+</div>
+</section>
+ 
 <section id="registre-commandes">
 <h2>📒 Registre des commandes validées</h2>
 <input type="text" id="searchOrders" oninput="renderOrderHistory()" placeholder="🔎 Rechercher client, téléphone ou article..." style="width:100%;padding:12px;margin:10px 0;border:1px solid #ccc;border-radius:8px">
