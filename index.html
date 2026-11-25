@@ -843,6 +843,7 @@ table.innerHTML=commandes.map(c=>`
 <td style="padding:10px;border:1px solid #ddd">${c.article}</td>
 <td style="padding:10px;border:1px solid #ddd">${c.quantite}</td>
 <td style="padding:10px;border:1px solid #ddd">${formatPrice(c.montant)}</td>
+<td style="padding:10px;border:1px solid #ddd">${c.statut||"Non renseigné"}</td>
 </tr>
 `).join("");
 }
