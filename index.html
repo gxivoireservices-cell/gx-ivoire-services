@@ -906,7 +906,7 @@ client:client,
 numero:numero,
 article:p.name,
 quantite:q,
-montant:Number(montant||0)
+montant:p.price*q
 });
 
 localStorage.setItem("gxivoire_orders",JSON.stringify(commandes));
