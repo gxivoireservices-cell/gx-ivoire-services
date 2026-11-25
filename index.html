@@ -883,7 +883,13 @@ let recherche=document.getElementById("searchOrders");
 let terme=recherche?recherche.value.toLowerCase().trim():"";
 let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
 
-table.innerHTML=commandes.map((c,i)=>`
+table.innerHTML=commandes
+.filter(c=>
+c.client.toLowerCase().includes(terme)||
+c.numero.toLowerCase().includes(terme)||
+c.article.toLowerCase().includes(terme)
+)
+.map((c,i)=>`
 <tr>
 <td style="padding:10px;border:1px solid #ddd">${c.date}</td>
 <td style="padding:10px;border:1px solid #ddd">${c.client}</td>
