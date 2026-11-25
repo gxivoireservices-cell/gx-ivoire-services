@@ -828,7 +828,7 @@ displayPopularProducts();
 displayPromotions();
 displayCart();
 
- function recordStockMovement(name,type,quantity){
+function recordStockMovement(name,type,quantity){
 let history=JSON.parse(localStorage.getItem("gxivoire_history")||"[]");
 
 history.unshift({
@@ -952,6 +952,7 @@ c.article.toLowerCase().includes(terme)
 <td style="padding:10px;border:1px solid #ddd">${c.quantite}</td>
 <td style="padding:10px;border:1px solid #ddd">${formatPrice(c.montant)}</td>
 <td style="padding:10px;border:1px solid #ddd">${c.statut||"Non renseigné"}</td>
+<td style="padding:10px;border:1px solid #ddd">${c.livraison||"À préparer"}</td>
 <td style="padding:10px;border:1px solid #ddd"><button onclick="cancelOrder(${commandes.indexOf(c)})" style="background:#dc2626;color:white;padding:8px;border:none;border-radius:5px">Annuler</button></td>
 </tr>
 `).join("");
