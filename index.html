@@ -934,7 +934,7 @@ a.click();
 URL.revokeObjectURL(url);
 }
  
-function cancelOrder(i){
+async function cancelOrder(i){
 
 let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
 
@@ -958,6 +958,21 @@ alert("Article introuvable dans le stock.");
 return;
 }
 
+const {data,error}=await supabaseClient
+.from("gx_orders")
+.update({annulee:true})
+.eq("client",c.client)
+.eq("article",c.article)
+.eq("quantite",c.quantite)
+.eq("annulee",false)
+.select();
+
+if(error||!data||data.length===0){
+alert("Erreur : annulation non confirmée dans Supabase. Stock non modifié.");
+console.error(error);
+return;
+}
+
 p.stock+=c.quantite;
 
 localStorage.setItem("gxivoire_stock",JSON.stringify(
@@ -971,6 +986,13 @@ c.annulee=true;
 commandes[i]=c;
 
 localStorage.setItem("gxivoire_orders",JSON.stringify(commandes));
+
+await supabaseClient
+.from("gx_stock")
+.upsert({
+nom_article:p.name,
+quantite:p.stock
+},{onConflict:"nom_article"});
 
 renderStock();
 renderStockHistory();
