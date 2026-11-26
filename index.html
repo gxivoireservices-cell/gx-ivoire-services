@@ -1250,6 +1250,14 @@ class="whatsapp-float">
 🟢 WhatsApp
 </a>
 
+<div id="admin-login" style="padding:20px;text-align:center;">
+  <h3>Connexion Administrateur</h3>
+  <input type="email" id="admin-email" placeholder="Adresse email">
+  <input type="password" id="admin-password" placeholder="Mot de passe">
+  <button onclick="adminLogin()">Se connecter</button>
+  <p id="login-message"></p>
+</div>
+ 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const SUPABASE_URL = "https://eqlzynfrnkpfcczgghxc.supabase.co";
@@ -1259,6 +1267,23 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
+async function adminLogin() {
+  const email = document.getElementById("admin-email").value;
+  const password = document.getElementById("admin-password").value;
+  const message = document.getElementById("login-message");
+
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email: email,
+    password: password
+  });
+
+  if (error) {
+    message.textContent = "Erreur : " + error.message;
+    return;
+  }
+
+  message.textContent = "Connexion réussie !";
+}
 </script>
  
 </body>
