@@ -1228,6 +1228,19 @@ return;
 
 p.stock-=q;
 
+const {error:stockError}=await supabaseClient
+.from("gx_stock")
+.upsert({
+nom_article:p.name,
+quantite:p.stock
+},{onConflict:"nom_article"});
+
+if(stockError){
+alert("Erreur de synchronisation du stock : "+stockError.message);
+console.error(stockError);
+return;
+}
+ 
 localStorage.setItem("gxivoire_stock",JSON.stringify(
 Object.fromEntries(products.map(p=>[p.name,p.stock]))
 ));
