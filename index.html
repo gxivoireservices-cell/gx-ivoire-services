@@ -1055,16 +1055,15 @@ localStorage.removeItem("gxivoire_history");
 renderStockHistory();
 }
 
-function validateManualOrder(){
+async function validateManualOrder(){
 
 let client=document.getElementById("clientCommande").value.trim();
 let numero=document.getElementById("numeroCommande").value.trim();
 let index=document.getElementById("articleCommande").value;
 let q=Number(document.getElementById("quantiteCommande").value);
-let montant=document.getElementById("montantCommande").value;
 let statut=document.getElementById("statutPaiement").value;
 let livraison=document.getElementById("statutLivraison").value;
- 
+
 if(client===""||index===""||!Number.isInteger(q)||q<=0){
 alert("Veuillez renseigner le client, l'article et une quantité valide.");
 return;
@@ -1086,6 +1085,26 @@ if(!confirm("Confirmer la vente de "+q+" x "+p.name+" pour "+client+" ?")){
 return;
 }
 
+let montant=p.price*q;
+
+const {error}=await supabaseClient
+.from("gx_orders")
+.insert({
+client:client,
+telephone:numero,
+article:p.name,
+quantite:q,
+montant:montant,
+statut_paiement:statut,
+statut_livraison:livraison,
+annulee:false
+});
+
+if(error){
+alert("Erreur Supabase : "+error.message);
+return;
+}
+
 p.stock-=q;
 
 localStorage.setItem("gxivoire_stock",JSON.stringify(
@@ -1102,7 +1121,7 @@ client:client,
 numero:numero,
 article:p.name,
 quantite:q,
-montant:p.price*q,
+montant:montant,
 statut:statut,
 livraison:livraison
 });
@@ -1110,12 +1129,10 @@ livraison:livraison
 localStorage.setItem("gxivoire_orders",JSON.stringify(commandes));
 
 renderOrderHistory();
-
 updateSalesDashboard();
- 
 renderStock();
 
-alert("Commande validée et stock mis à jour !");
+alert("Commande enregistrée dans Supabase et stock mis à jour !");
 
 document.getElementById("clientCommande").value="";
 document.getElementById("numeroCommande").value="";
