@@ -1453,6 +1453,31 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_KEY
 );
 
+async function loadStockHistoryFromSupabase(){
+
+const {data,error}=await supabaseClient
+.from("gx_stock_movements")
+.select("*")
+.order("created_at",{ascending:false});
+
+if(error){
+alert("Erreur de chargement de l'historique : "+error.message);
+console.error(error);
+return;
+}
+
+let history=data.map(m=>({
+date:new Date(m.created_at).toLocaleString("fr-FR"),
+name:m.nom_article,
+type:m.type_mouvement,
+quantity:m.quantite
+}));
+
+localStorage.setItem("gxivoire_history",JSON.stringify(history));
+
+renderStockHistory();
+}
+ 
 async function loadOrdersFromSupabase(){
 
 const {data,error}=await supabaseClient
@@ -1530,6 +1555,7 @@ async function adminLogin() {
  message.textContent = "Connexion réussie !";
  await loadStockFromSupabase();
  await loadOrdersFromSupabase();
+ await loadStockHistoryFromSupabase();
 
 }
 </script>
