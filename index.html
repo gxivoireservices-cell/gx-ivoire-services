@@ -1075,12 +1075,51 @@ c.article.toLowerCase().includes(terme)
 <option value="Payé" ${c.statut==="Payé"?"selected":""}>Payé</option>
 </select>
 </td>
-<td style="padding:10px;border:1px solid #ddd">${c.livraison||"À préparer"}</td>
+<td style="padding:10px;border:1px solid #ddd">
+<select onchange="updateDeliveryStatus(${commandes.indexOf(c)},this.value)">
+<option value="À préparer" ${c.livraison==="À préparer"?"selected":""}>À préparer</option>
+<option value="En livraison" ${c.livraison==="En livraison"?"selected":""}>En livraison</option>
+<option value="Livrée" ${c.livraison==="Livrée"?"selected":""}>Livrée</option>
+<option value="Retirée" ${c.livraison==="Retirée"?"selected":""}>Retirée</option>
+</select>
+</td>
 <td style="padding:10px;border:1px solid #ddd"><button onclick="cancelOrder(${commandes.indexOf(c)})" style="background:#dc2626;color:white;padding:8px;border:none;border-radius:5px">Annuler</button></td>
 </tr>
 `).join("");
 }
 
+async function updateDeliveryStatus(i,newStatus){
+
+let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
+let c=commandes[i];
+
+if(!c||!c.id){
+alert("Identifiant de commande introuvable.");
+return;
+}
+
+const {data,error}=await supabaseClient
+.from("gx_orders")
+.update({statut_livraison:newStatus})
+.eq("id",c.id)
+.select();
+
+if(error||!data||data.length===0){
+alert("Erreur de synchronisation de la livraison avec Supabase.");
+console.error(error);
+return;
+}
+
+c.livraison=newStatus;
+commandes[i]=c;
+
+localStorage.setItem("gxivoire_orders",JSON.stringify(commandes));
+
+renderOrderHistory();
+
+alert("Statut de livraison synchronisé avec Supabase !");
+}
+ 
 async function updatePaymentStatus(i,newStatus){
 
 let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
