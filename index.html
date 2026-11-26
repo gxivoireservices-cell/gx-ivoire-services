@@ -859,21 +859,38 @@ displayProducts();
 displayNewProducts();
 displayPopularProducts();
 displayPromotions();
-displayCart();
+displayCart()
 
-function recordStockMovement(name,type,quantity){
+async function recordStockMovement(name,type,quantity){
 let history=JSON.parse(localStorage.getItem("gxivoire_history")||"[]");
 
-history.unshift({
+let movement={
 date:new Date().toLocaleString("fr-FR"),
 name:name,
 type:type,
 quantity:quantity
-});
+};
+
+history.unshift(movement);
 
 localStorage.setItem("gxivoire_history",JSON.stringify(history));
-renderStockHistory();
+
+if(supabaseClient){
+const {error}=await supabaseClient
+.from("gx_stock_movements")
+.insert({
+nom_article:name,
+type_mouvement:type,
+quantite:quantity
+});
+
+if(error){
+console.error("Erreur Supabase mouvements :",error.message);
 }
+}
+
+renderStockHistory();
+ }
 
 function exportOrdersCSV(){
 
