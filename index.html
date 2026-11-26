@@ -1068,11 +1068,49 @@ c.article.toLowerCase().includes(terme)
 <td style="padding:10px;border:1px solid #ddd">${c.article}</td>
 <td style="padding:10px;border:1px solid #ddd">${c.quantite}</td>
 <td style="padding:10px;border:1px solid #ddd">${formatPrice(c.montant)}</td>
-<td style="padding:10px;border:1px solid #ddd">${c.statut||"Non renseigné"}</td>
+<td style="padding:10px;border:1px solid #ddd">
+<select onchange="updatePaymentStatus(${commandes.indexOf(c)},this.value)">
+<option value="Non payé" ${c.statut==="Non payé"?"selected":""}>Non payé</option>
+<option value="Partiellement payé" ${c.statut==="Partiellement payé"?"selected":""}>Partiellement payé</option>
+<option value="Payé" ${c.statut==="Payé"?"selected":""}>Payé</option>
+</select>
+</td>
 <td style="padding:10px;border:1px solid #ddd">${c.livraison||"À préparer"}</td>
 <td style="padding:10px;border:1px solid #ddd"><button onclick="cancelOrder(${commandes.indexOf(c)})" style="background:#dc2626;color:white;padding:8px;border:none;border-radius:5px">Annuler</button></td>
 </tr>
 `).join("");
+}
+
+async function updatePaymentStatus(i,newStatus){
+
+let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
+let c=commandes[i];
+
+if(!c||!c.id){
+alert("Identifiant de commande introuvable.");
+return;
+}
+
+const {data,error}=await supabaseClient
+.from("gx_orders")
+.update({statut_paiement:newStatus})
+.eq("id",c.id)
+.select();
+
+if(error||!data||data.length===0){
+alert("Erreur de synchronisation du paiement avec Supabase.");
+console.error(error);
+return;
+}
+
+c.statut=newStatus;
+commandes[i]=c;
+
+localStorage.setItem("gxivoire_orders",JSON.stringify(commandes));
+
+updateSalesDashboard();
+
+alert("Statut de paiement synchronisé avec Supabase !");
 }
  
 function renderStockHistory(){
