@@ -940,6 +940,28 @@ let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
 
 let c=commandes[i];
 
+if(c && !c.id){
+
+const {data,error}=await supabaseClient
+.from("gx_orders")
+.select("id")
+.eq("client",c.client)
+.eq("article",c.article)
+.eq("quantite",c.quantite)
+.eq("annulee",false);
+
+if(error || !data || data.length!==1){
+alert("Impossible d'identifier cette commande de façon sûre.");
+return;
+}
+
+c.id=data[0].id;
+
+commandes[i]=c;
+
+localStorage.setItem("gxivoire_orders",JSON.stringify(commandes));
+}
+
 if(!c)return;
 
 if(c.annulee){
