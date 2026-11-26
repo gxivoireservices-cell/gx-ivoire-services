@@ -961,9 +961,7 @@ return;
 const {data,error}=await supabaseClient
 .from("gx_orders")
 .update({annulee:true})
-.eq("client",c.client)
-.eq("article",c.article)
-.eq("quantite",c.quantite)
+.eq("id",c.id)
 .eq("annulee",false)
 .select();
 
@@ -1109,7 +1107,7 @@ return;
 
 let montant=p.price*q;
 
-const {error}=await supabaseClient
+const {data:commandeSupabase,error}=await supabaseClient
 .from("gx_orders")
 .insert({
 client:client,
@@ -1120,7 +1118,9 @@ montant:montant,
 statut_paiement:statut,
 statut_livraison:livraison,
 annulee:false
-});
+})
+.select("id")
+.single();
 
 if(error){
 alert("Erreur Supabase : "+error.message);
@@ -1139,6 +1139,7 @@ let commandes=JSON.parse(localStorage.getItem("gxivoire_orders")||"[]");
 
 commandes.unshift({
 date:new Date().toLocaleString("fr-FR"),
+id:commandeSupabase.id,
 client:client,
 numero:numero,
 article:p.name,
