@@ -1202,7 +1202,7 @@ style="width:80px;padding:8px">
 updateStockAlerts();
 }
 
-function setStock(i){
+async function setStock(i){
 let input=document.getElementById("stockInput"+i);
 let q=input.value;
 
@@ -1213,6 +1213,7 @@ return;
 
 let ancienStock=products[i].stock;
 products[i].stock=Number(q);
+
 recordStockMovement(
 products[i].name,
 "Correction ("+(ancienStock===null||ancienStock===undefined?"non défini":ancienStock)+" → "+q+")",
@@ -1222,6 +1223,21 @@ Number(q)
 localStorage.setItem("gxivoire_stock",JSON.stringify(
 Object.fromEntries(products.map(p=>[p.name,p.stock]))
 ));
+
+if(supabaseClient){
+const {error}=await supabaseClient
+.from("gx_stock")
+.upsert({
+nom_article:products[i].name,
+quantite:Number(q)
+},{onConflict:"nom_article"});
+
+if(error){
+console.error("Erreur Supabase stock :",error.message);
+alert("Stock enregistré localement, mais erreur Supabase : "+error.message);
+return;
+}
+}
 
 renderStock();
 alert("Stock mis à jour !");
