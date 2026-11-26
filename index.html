@@ -1415,11 +1415,31 @@ recordStockMovement(p.name,variation>0?"Entrée":"Sortie",Math.abs(variation));
 }
 
 renderStock();
- 
+
 localStorage.setItem("gxivoire_stock",JSON.stringify(
 Object.fromEntries(products.map(p=>[p.name,p.stock]))
 ));
+
+async function syncStockToSupabase(p){
+
+const {error}=await supabaseClient
+.from("gx_stock")
+.upsert({
+nom_article:p.name,
+quantite:p.stock
+},{onConflict:"nom_article"});
+
+if(error){
+alert("Erreur de synchronisation du stock : "+error.message);
+console.error(error);
+return;
 }
+
+alert("Stock synchronisé avec Supabase !");
+}
+
+syncStockToSupabase(p);
+ }
 
 renderStock();
 renderStockHistory();
