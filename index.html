@@ -1453,6 +1453,38 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_KEY
 );
 
+async function loadOrdersFromSupabase(){
+
+const {data,error}=await supabaseClient
+.from("gx_orders")
+.select("*")
+.order("created_at",{ascending:false});
+
+if(error){
+alert("Erreur de chargement des commandes : "+error.message);
+console.error(error);
+return;
+}
+
+let commandes=data.map(c=>({
+date:new Date(c.created_at).toLocaleString("fr-FR"),
+id:c.id,
+client:c.client,
+numero:c.telephone||"",
+article:c.article,
+quantite:c.quantite,
+montant:Number(c.montant),
+statut:c.statut_paiement,
+livraison:c.statut_livraison,
+annulee:c.annulee
+}));
+
+localStorage.setItem("gxivoire_orders",JSON.stringify(commandes));
+
+renderOrderHistory();
+updateSalesDashboard();
+}
+ 
 async function loadStockFromSupabase(){
 
 const {data,error}=await supabaseClient
@@ -1497,6 +1529,7 @@ async function adminLogin() {
 
  message.textContent = "Connexion réussie !";
  await loadStockFromSupabase();
+ await loadOrdersFromSupabase();
 
 }
 </script>
