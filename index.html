@@ -1452,6 +1452,34 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
+
+async function loadStockFromSupabase(){
+
+const {data,error}=await supabaseClient
+.from("gx_stock")
+.select("*");
+
+if(error){
+alert("Erreur de chargement des stocks : "+error.message);
+console.error(error);
+return;
+}
+
+data.forEach(item=>{
+let p=products.find(x=>x.name===item.nom_article);
+
+if(p){
+p.stock=item.quantite;
+}
+});
+
+localStorage.setItem("gxivoire_stock",JSON.stringify(
+Object.fromEntries(products.map(p=>[p.name,p.stock]))
+));
+
+renderStock();
+}
+ 
 async function adminLogin() {
   const email = document.getElementById("admin-email").value;
   const password = document.getElementById("admin-password").value;
@@ -1462,12 +1490,14 @@ async function adminLogin() {
     password: password
   });
 
-  if (error) {
+ if (error) {
     message.textContent = "Erreur : " + error.message;
     return;
-  }
+ }
 
-  message.textContent = "Connexion réussie !";
+ message.textContent = "Connexion réussie !";
+ await loadStockFromSupabase();
+
 }
 </script>
  
