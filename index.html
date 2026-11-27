@@ -452,7 +452,7 @@ Enregistrer la commande
 </div>
 </section>
 
-<section id="tableau-bord">
+<section id="tableau-bord" style="display:none">
 <h2>📊 Tableau de bord des ventes</h2>
 
 <div id="salesDashboard" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px">
@@ -1572,7 +1572,9 @@ async function adminLogin() {
     return;
  }
 
- message.textContent = "Connexion réussie !";
+message.textContent = "Connexion réussie !";
+document.getElementById("gestion-stock").style.display="block";
+document.getElementById("tableau-bord").style.display="block";
  await loadStockFromSupabase();
  await loadOrdersFromSupabase();
  await loadStockHistoryFromSupabase();
