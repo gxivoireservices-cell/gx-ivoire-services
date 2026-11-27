@@ -405,7 +405,7 @@ target="_blank" class="btn">
 </div>
 </section>
 
-<section id="validation-commandes">
+<section id="validation-commandes" style="display:none">
 <h2>🧾 Validation des commandes</h2>
 
 <p>Les commandes reçues par WhatsApp peuvent être vérifiées et validées ici.</p>
@@ -485,7 +485,7 @@ Enregistrer la commande
 </div>
 </section>
  
-<section id="registre-commandes">
+<section id="registre-commandes" style="display:none">
 <h2>📒 Registre des commandes validées</h2>
 <input type="text" id="searchOrders" oninput="renderOrderHistory()" placeholder="🔎 Rechercher client, téléphone ou article..." style="width:100%;padding:12px;margin:10px 0;border:1px solid #ccc;border-radius:8px">
 <button onclick="exportOrdersCSV()" style="background:#16803D;color:white;padding:12px;border:none;border-radius:8px;margin:10px 0">
@@ -1576,6 +1576,8 @@ message.textContent = "Connexion réussie !";
 document.getElementById("gestion-stock").style.display="block";
 document.getElementById("tableau-bord").style.display="block";
 document.getElementById("historique-stock").style.display="block";
+document.getElementById("validation-commandes").style.display="block";
+document.getElementById("registre-commandes").style.display="block";
  await loadStockFromSupabase();
  await loadOrdersFromSupabase();
  await loadStockHistoryFromSupabase();
