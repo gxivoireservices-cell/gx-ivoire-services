@@ -535,7 +535,7 @@ Enregistrer la commande
 </div>
  </section>
 
- <section id="historique-stock">
+ <section id="historique-stock" style="display:none">
 <h2>📋 Historique des mouvements de stock</h2>
 
 <div style="overflow-x:auto">
@@ -1575,6 +1575,7 @@ async function adminLogin() {
 message.textContent = "Connexion réussie !";
 document.getElementById("gestion-stock").style.display="block";
 document.getElementById("tableau-bord").style.display="block";
+document.getElementById("historique-stock").style.display="block";
  await loadStockFromSupabase();
  await loadOrdersFromSupabase();
  await loadStockHistoryFromSupabase();
