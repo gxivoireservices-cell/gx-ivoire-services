@@ -1460,6 +1460,7 @@ class="whatsapp-float">
   <input type="email" id="admin-email" placeholder="Adresse email">
   <input type="password" id="admin-password" placeholder="Mot de passe">
   <button onclick="adminLogin()">Se connecter</button>
+  <button id="logout-button" onclick="adminLogout()" style="display:none">Déconnexion</button>
   <p id="login-message"></p>
 </div>
  
@@ -1556,6 +1557,27 @@ Object.fromEntries(products.map(p=>[p.name,p.stock]))
 
 renderStock();
 }
+
+ async function adminLogout(){
+
+const {error}=await supabaseClient.auth.signOut();
+
+if(error){
+alert("Erreur de déconnexion : "+error.message);
+return;
+}
+
+document.getElementById("gestion-stock").style.display="none";
+document.getElementById("tableau-bord").style.display="none";
+document.getElementById("historique-stock").style.display="none";
+document.getElementById("validation-commandes").style.display="none";
+document.getElementById("registre-commandes").style.display="none";
+
+document.getElementById("logout-button").style.display="none";
+document.querySelector('button[onclick="adminLogin()"]').style.display="inline-block";
+document.getElementById("login-message").textContent="Déconnexion réussie !";
+
+ }
  
 async function adminLogin() {
   const email = document.getElementById("admin-email").value;
@@ -1573,6 +1595,8 @@ async function adminLogin() {
  }
 
 message.textContent = "Connexion réussie !";
+document.getElementById("logout-button").style.display="inline-block";
+document.querySelector('button[onclick="adminLogin()"]').style.display="none";
 document.getElementById("gestion-stock").style.display="block";
 document.getElementById("tableau-bord").style.display="block";
 document.getElementById("historique-stock").style.display="block";
