@@ -1607,6 +1607,21 @@ document.getElementById("registre-commandes").style.display="block";
  await loadStockHistoryFromSupabase();
 
 }
+
+function showProductDetails(index){
+
+let product=productsData[index];
+
+alert(
+"Article : "+product.name+
+"\nPrix : "+formatPrice(product.price)+
+"\nCatégorie : "+product.category+
+"\nStock : "+(product.stock ?? "Non renseigné")+
+"\n\nDescription : "+
+(product.description || "Description à ajouter.")
+);
+
+}
 </script>
  
 </body>
