@@ -1630,6 +1630,47 @@ document.getElementById("productModal").style.display="none";
 
  let catalogEditId = null;
 
+ async function migrateProductsToSupabase(){
+
+  if(!confirm("Transférer les articles existants vers Supabase ?")) return;
+
+  let {data:existing,error:checkError}=await supabaseClient
+    .from("gx_products")
+    .select("id")
+    .limit(1);
+
+  if(checkError){
+    alert("Erreur de vérification : "+checkError.message);
+    return;
+  }
+
+  if(existing.length>0){
+    alert("Le catalogue Supabase contient déjà des articles. Transfert arrêté.");
+    return;
+  }
+
+  let rows=productsData.map(p=>({
+    nom_article:p.name,
+    prix:p.price,
+    ancien_prix:p.oldPrice??null,
+    image_url:p.image||null,
+    categorie:p.category||null,
+    description:p.description||null,
+    actif:true
+  }));
+
+  let {error}=await supabaseClient
+    .from("gx_products")
+    .insert(rows);
+
+  if(error){
+    alert("Erreur de transfert : "+error.message);
+    return;
+  }
+
+  alert(rows.length+" articles transférés avec succès !");
+ }
+
 async function showCatalogManager(){
   document.getElementById("catalogManager").style.display="block";
   await loadCatalogList();
@@ -1762,6 +1803,10 @@ async function deleteCatalogProduct(id){
 
  <div id="catalogManager" style="display:none;padding:20px;background:#f5f7f5;">
   <h2>📦 Gestion du catalogue</h2>
+
+  <button onclick="migrateProductsToSupabase()">
+  📥 Transférer les 30 articles vers Supabase
+  </button>
 
   <label>Nom de l'article</label>
   <input id="productName" type="text" placeholder="Nom de l'article">
