@@ -671,8 +671,8 @@ let priceHTML=product.oldPrice
 return `
 <div class="card">
 ${product.isNew ? '<span class="new-tag">🆕 NOUVEAU</span>' : ''}
-<img src="${product.image}" alt="${product.name}" loading="lazy">
-<h3>${product.name}</h3>
+<img src="${product.image}" alt="${product.name}" loading="lazy" onclick="showProductDetails(${index})" style="cursor:pointer">
+<h3 onclick="showProductDetails(${index})" style="cursor:pointer">${product.name}</h3>
 <p class="stock-status">
 ${product.stock === undefined || product.stock > 3
 ? "🟢 En stock"
