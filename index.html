@@ -1609,20 +1609,35 @@ document.getElementById("registre-commandes").style.display="block";
 }
 
 function showProductDetails(index){
-
 let product=productsData[index];
 
-alert(
-"Article : "+product.name+
-"\nPrix : "+formatPrice(product.price)+
-"\nCatégorie : "+product.category+
-"\nStock : "+(product.stock ?? "Non renseigné")+
-"\n\nDescription : "+
-(product.description || "Description à ajouter.")
-);
+document.getElementById("modalImage").src=product.image;
+document.getElementById("modalName").textContent=product.name;
+document.getElementById("modalPrice").textContent=formatPrice(product.price);
+document.getElementById("modalCategory").textContent=product.category;
+document.getElementById("modalStock").textContent=product.stock ?? "Non renseigné";
+document.getElementById("modalDescription").textContent=product.description || "Description à ajouter.";
 
+document.getElementById("productModal").style.display="flex";
+}
+
+function closeProductDetails(){
+document.getElementById("productModal").style.display="none";
 }
 </script>
+
+ <div id="productModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;justify-content:center;align-items:center;padding:15px;">
+  <div style="background:white;width:100%;max-width:450px;border-radius:15px;padding:20px;max-height:90vh;overflow:auto;">
+    <img id="modalImage" src="" style="width:100%;max-height:250px;object-fit:contain;border-radius:10px;">
+    <h2 id="modalName"></h2>
+    <p><strong>Prix :</strong> <span id="modalPrice"></span></p>
+    <p><strong>Catégorie :</strong> <span id="modalCategory"></span></p>
+    <p><strong>Stock :</strong> <span id="modalStock"></span></p>
+    <p><strong>Description :</strong></p>
+    <p id="modalDescription"></p>
+    <button onclick="closeProductDetails()" style="width:100%;padding:12px;background:#198754;color:white;border:none;border-radius:8px;font-size:16px;">Fermer</button>
+  </div>
+ </div>
  
 </body>
   </html>
