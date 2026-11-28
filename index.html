@@ -1576,6 +1576,7 @@ async function loadProductsFromSupabase(){
     return;
   }
 
+  alert("Articles reçus depuis Supabase : "+data.length);
   if(!data || data.length===0){
     alert("Aucun article trouvé dans le catalogue.");
     return;
