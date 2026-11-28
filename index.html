@@ -855,7 +855,8 @@ let url="https://wa.me/2250768693537?text="+encodeURIComponent(message);
 window.open(url,"_blank");
 }
 
-loadProductsFromSupabase().then(()=>{
+  loadProductsFromSupabase().then(()=>{
+   
   displayProducts();
   displayNewProducts();
   displayPopularProducts();
