@@ -1461,6 +1461,7 @@ class="whatsapp-float">
   <input type="password" id="admin-password" placeholder="Mot de passe">
   <button onclick="adminLogin()">Se connecter</button>
   <button id="logout-button" onclick="adminLogout()" style="display:none">Déconnexion</button>
+  <button id="catalog-button" onclick="showCatalogManager()" style="display:none">📦 Gestion du catalogue</button>
   <p id="login-message"></p>
 </div>
  
@@ -1574,6 +1575,7 @@ document.getElementById("validation-commandes").style.display="none";
 document.getElementById("registre-commandes").style.display="none";
 
 document.getElementById("logout-button").style.display="none";
+document.getElementById("catalog-button").style.display="none";
 document.querySelector('button[onclick="adminLogin()"]').style.display="inline-block";
 document.getElementById("login-message").textContent="Déconnexion réussie !";
 
@@ -1596,6 +1598,7 @@ async function adminLogin() {
 
 message.textContent = "Connexion réussie !";
 document.getElementById("logout-button").style.display="inline-block";
+document.getElementById("catalog-button").style.display="inline-block";
 document.querySelector('button[onclick="adminLogin()"]').style.display="none";
 document.getElementById("gestion-stock").style.display="block";
 document.getElementById("tableau-bord").style.display="block";
@@ -1624,6 +1627,124 @@ document.getElementById("productModal").style.display="flex";
 function closeProductDetails(){
 document.getElementById("productModal").style.display="none";
 }
+
+ let catalogEditId = null;
+
+async function showCatalogManager(){
+  document.getElementById("catalogManager").style.display="block";
+  await loadCatalogList();
+}
+
+function closeCatalogManager(){
+  document.getElementById("catalogManager").style.display="none";
+}
+
+async function loadCatalogList(){
+  let container=document.getElementById("catalogList");
+
+  let {data,error}=await supabaseClient
+    .from("gx_products")
+    .select("*")
+    .order("nom_article");
+
+  if(error){
+    container.innerHTML="Erreur de chargement du catalogue.";
+    return;
+  }
+
+  container.innerHTML=data.map(p=>`
+    <div style="padding:10px;border-bottom:1px solid #ccc">
+      <strong>${p.nom_article}</strong> - ${p.prix} FCFA
+      <button onclick="editCatalogProduct('${p.id}')">Modifier</button>
+      <button onclick="deleteCatalogProduct('${p.id}')">Supprimer</button>
+    </div>
+  `).join("");
+}
+
+async function saveCatalogProduct(){
+  let nom=document.getElementById("productName").value.trim();
+  let prix=Number(document.getElementById("productPrice").value);
+  let ancien=document.getElementById("productOldPrice").value;
+  let categorie=document.getElementById("productCategory").value.trim();
+  let image=document.getElementById("productImage").value.trim();
+  let description=document.getElementById("productDescription").value.trim();
+
+  if(!nom || document.getElementById("productPrice").value===""){
+    alert("Veuillez renseigner le nom et le prix.");
+    return;
+  }
+
+  let produit={
+    nom_article:nom,
+    prix:prix,
+    ancien_prix:ancien===""?null:Number(ancien),
+    categorie:categorie,
+    image_url:image,
+    description:description,
+    actif:true
+  };
+
+  let result=catalogEditId
+    ? await supabaseClient.from("gx_products").update(produit).eq("id",catalogEditId)
+    : await supabaseClient.from("gx_products").insert([produit]);
+
+  if(result.error){
+    alert("Erreur : "+result.error.message);
+    return;
+  }
+
+  alert("Article enregistré avec succès.");
+
+  catalogEditId=null;
+  document.getElementById("productName").value="";
+  document.getElementById("productPrice").value="";
+  document.getElementById("productOldPrice").value="";
+  document.getElementById("productCategory").value="";
+  document.getElementById("productImage").value="";
+  document.getElementById("productDescription").value="";
+
+  await loadCatalogList();
+}
+
+async function editCatalogProduct(id){
+  let {data,error}=await supabaseClient
+    .from("gx_products")
+    .select("*")
+    .eq("id",id)
+    .single();
+
+  if(error){
+    alert("Impossible de charger cet article.");
+    return;
+  }
+
+  catalogEditId=id;
+  document.getElementById("productName").value=data.nom_article;
+  document.getElementById("productPrice").value=data.prix;
+  document.getElementById("productOldPrice").value=data.ancien_prix??"";
+  document.getElementById("productCategory").value=data.categorie??"";
+  document.getElementById("productImage").value=data.image_url??"";
+  document.getElementById("productDescription").value=data.description??"";
+
+  document.getElementById("catalogManager").scrollIntoView();
+}
+
+async function deleteCatalogProduct(id){
+  if(!confirm("Supprimer cet article du catalogue ?"))return;
+
+  let {error}=await supabaseClient
+    .from("gx_products")
+    .delete()
+    .eq("id",id);
+
+  if(error){
+    alert("Erreur : "+error.message);
+    return;
+  }
+
+  alert("Article supprimé.");
+  await loadCatalogList();
+ }
 </script>
 
  <div id="productModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;justify-content:center;align-items:center;padding:15px;">
@@ -1637,6 +1758,33 @@ document.getElementById("productModal").style.display="none";
     <p id="modalDescription"></p>
     <button onclick="closeProductDetails()" style="width:100%;padding:12px;background:#198754;color:white;border:none;border-radius:8px;font-size:16px;">Fermer</button>
   </div>
+ </div>
+
+ <div id="catalogManager" style="display:none;padding:20px;background:#f5f7f5;">
+  <h2>📦 Gestion du catalogue</h2>
+
+  <label>Nom de l'article</label>
+  <input id="productName" type="text" placeholder="Nom de l'article">
+
+  <label>Prix (FCFA)</label>
+  <input id="productPrice" type="number" placeholder="Prix">
+
+  <label>Ancien prix (FCFA)</label>
+  <input id="productOldPrice" type="number" placeholder="Ancien prix">
+
+  <label>Catégorie</label>
+  <input id="productCategory" type="text" placeholder="Catégorie">
+
+  <label>Photo (URL)</label>
+  <input id="productImage" type="text" placeholder="Lien de la photo">
+
+  <label>Description</label>
+  <textarea id="productDescription" placeholder="Description de l'article"></textarea>
+
+  <button onclick="saveCatalogProduct()">💾 Enregistrer l'article</button>
+  <button onclick="closeCatalogManager()">Fermer</button>
+
+  <div id="catalogList"></div>
  </div>
  
 </body>
