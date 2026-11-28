@@ -854,15 +854,12 @@ let url="https://wa.me/2250768693537?text="+encodeURIComponent(message);
 
 window.open(url,"_blank");
 }
-
-  loadProductsFromSupabase().then(()=>{
-   
-  displayProducts();
-  displayNewProducts();
-  displayPopularProducts();
-  displayPromotions();
-  displayCart();
-});
+ 
+displayProducts();
+displayNewProducts();
+displayPopularProducts();
+displayPromotions();
+displayCart();
 
 async function recordStockMovement(name,type,quantity){
 let history=JSON.parse(localStorage.getItem("gxivoire_history")||"[]");
