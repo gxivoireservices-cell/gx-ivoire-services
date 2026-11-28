@@ -855,11 +855,13 @@ let url="https://wa.me/2250768693537?text="+encodeURIComponent(message);
 window.open(url,"_blank");
 }
 
-displayProducts();
-displayNewProducts();
-displayPopularProducts();
-displayPromotions();
-displayCart()
+loadProductsFromSupabase().then(()=>{
+  displayProducts();
+  displayNewProducts();
+  displayPopularProducts();
+  displayPromotions();
+  displayCart();
+});
 
 async function recordStockMovement(name,type,quantity){
 let history=JSON.parse(localStorage.getItem("gxivoire_history")||"[]");
@@ -1557,6 +1559,46 @@ Object.fromEntries(products.map(p=>[p.name,p.stock]))
 ));
 
 renderStock();
+}
+
+async function loadProductsFromSupabase(){
+
+  const {data,error}=await supabaseClient
+    .from("gx_products")
+    .select("*")
+    .eq("actif",true)
+    .order("created_at");
+
+  if(error){
+    console.error("Erreur catalogue :",error);
+    alert("Erreur de chargement du catalogue : "+error.message);
+    return;
+  }
+
+  if(!data || data.length===0){
+    alert("Aucun article trouvé dans le catalogue.");
+    return;
+  }
+  const previousStock=Object.fromEntries(
+  productsData.map(p=>[p.name,p.stock])
+);
+
+const newProducts=data.map(p=>({
+    name:p.nom_article,
+    price:Number(p.prix),
+    oldPrice:p.ancien_prix===null?undefined:Number(p.ancien_prix),
+    image:p.image_url||"",
+    category:p.categorie||"Autres",
+    description:p.description||"",
+    stock:previousStock[p.nom_article]
+  }));
+
+  productsData.splice(0,productsData.length,...newProducts);
+
+  displayProducts();
+  displayNewProducts();
+  displayPopularProducts();
+  displayPromotions();
 }
 
  async function adminLogout(){
